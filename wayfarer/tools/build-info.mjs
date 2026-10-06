@@ -1,0 +1,2 @@
+import {readFile,writeFile} from 'node:fs/promises';
+const root=new URL('../',import.meta.url),{version}=JSON.parse(await readFile(new URL('package.json',root),'utf8'));if(!/^\d+\.\d+\.\d+$/.test(version))throw Error('Invalid release version');await writeFile(new URL('src/build-info.ts',root),`/** Generated from package.json by tools/build-info.mjs. */\nexport const BUILD_VERSION='${version}';\n`);

@@ -1,0 +1,597 @@
+import { createHarvest3D } from './harvest-3d.js';
+import { waterMaterial, updateWaterFlow } from './flowing-water.js';
+import { createSkillLife3D } from './skill-life-3d.js';
+import { lifeRecipe } from './skill-life.js';
+import { MINE_ID } from './mountain-mine.js';
+import { caveAt } from './cave-instances.js';
+import { primitiveMesh } from './scene-meshes.js';
+import { flourishSites, createRealmFlourish } from './realm-flourish.js';
+import { createCuriousRoofs } from './curious-buildings-3d.js';
+import { createGatherNodes3D } from './gather-nodes-3d.js';
+import { CastEcho3D } from './cast-echo-3d.js';
+import { setEtchedDetail } from './etched-surfaces.js';
+import { highlandTrail, highlandWildlife } from './highlands.js';
+import { createHighlands3D } from './highlands-3d.js';
+import { isPracticeSkill } from './practice.js';
+import { createWallPainting } from './wall-painting-3d.js';
+import { createNamedNPC3D } from './npc-cast-3d.js';
+import { placeRealmCast } from './npc-prototypes.js';
+import { RealmSky3D } from './realm-sky-3d.js';
+import { WeatherChunkCache } from './realm-weather.js';
+import { decorateRealmNPC } from './npc-details.js';
+import { Engine, Scene, ArcRotateCamera, Vector3, HemisphericLight, DirectionalLight, PointLight, Color3, Color4, MeshBuilder, StandardMaterial, DefaultRenderingPipeline, LinesMesh, ShadowGenerator, Matrix, TransformNode } from '@babylonjs/core';
+import { QUALITY_PRESETS, isVisualQuality } from './visual-surface.js';
+import { cameraDirection } from './travel-controls.js';
+import { createHero3D } from './hero-3d.js';
+import { RealmAmbience3D } from './realm-ambience-3d.js';
+import { createRetroGrass, styleRetroMesh } from './retro-world.js';
+import { practiceGesture } from './practice-pose.js';
+import { createPracticeYard } from './practice-yard-3d.js';
+import { Wildlife3D } from './wildlife-3d.js';
+import { wildlifeForRealm } from './wildlife.js';
+import { createRealmScene, realmCodexPoint, REALM_WORLD } from './realm-scene.js';
+import { crossingScene } from './scene-meshes.js';
+import { mountBabylonMesh } from './babylon-mesh.js';
+import { RESONANCE_NODES, isResonanceEffectId, resonanceEffect } from './resonance-codex.js';
+import { createCelestialExpansion } from './celestial-expansion-3d.js';
+/** Alternate renderer consumes only validated/interpolated server state. */
+export class Realm3D {
+    canvas;
+    engine;
+    scene;
+    camera;
+    heroes = new Map();
+    lastPaint = -Infinity;
+    disposed = false;
+    warden;
+    halden;
+    ring;
+    harvestPainting;
+    painting;
+    castPlacements;
+    cast = [];
+    outdoorRoot;
+    caveRoot;
+    caveHandles = [];
+    caves;
+    area;
+    areaLoadGeneration = 0;
+    areaPreparing = false;
+    stagedCaveHandles = new Set();
+    stagedCaveRoots = new Set();
+    cancelAreaLoad() { this.areaLoadGeneration++; this.areaPreparing = false; for (const h of this.stagedCaveHandles)
+        h.dispose(); this.stagedCaveHandles.clear(); for (const root of this.stagedCaveRoots)
+        root.dispose(); this.stagedCaveRoots.clear(); }
+    commitArea(area, root, handles) { for (const h of this.caveHandles)
+        h.dispose(); this.caveRoot?.dispose(); this.caveHandles = handles; this.caveRoot = root; this.area = area; root?.setEnabled(true); this.outdoorRoot.setEnabled(!area); this.follow = undefined; }
+    cavePart(root, p) { const h = mountBabylonMesh(this.scene, p.id, primitiveMesh(p)); h.mesh.parent = root; h.mesh.isPickable = p.id.endsWith(':floor'); if (p.color === '#487F87' || p.id.endsWith(':lobster-pool'))
+        waterMaterial(this.scene, h.mesh); return h; }
+    /** Bounded procedural chunk mounting. Old space stays owned until the new space commits. */
+    async prepareArea(area, onProgress, yieldFrame = () => new Promise(resolve => { if (typeof requestAnimationFrame === 'function')
+        requestAnimationFrame(() => resolve());
+    else
+        resolve(); })) {
+        if (this.disposed)
+            throw Error('Renderer closed');
+        const cave = this.caves.find(c => c.id === area);
+        if (area && !cave)
+            throw Error('Unknown cave');
+        this.cancelAreaLoad();
+        const generation = this.areaLoadGeneration;
+        this.areaPreparing = true;
+        const root = cave ? new TransformNode('cave-instance:' + area, this.scene) : undefined, handles = [];
+        root?.setEnabled(false);
+        if (root)
+            this.stagedCaveRoots.add(root);
+        const clear = () => { for (const h of handles) {
+            h.dispose();
+            this.stagedCaveHandles.delete(h);
+        } root?.dispose(); if (root)
+            this.stagedCaveRoots.delete(root); };
+        try {
+            const total = cave?.chunks.length ?? 1;
+            onProgress?.(0, total);
+            let completed = 0;
+            if (cave && root) {
+                for (const chunk of cave.chunks) {
+                    for (let i = 0; i < chunk.primitives.length; i++) {
+                        if (generation !== this.areaLoadGeneration || this.disposed) {
+                            clear();
+                            return false;
+                        }
+                        const h = this.cavePart(root, chunk.primitives[i]);
+                        handles.push(h);
+                        this.stagedCaveHandles.add(h);
+                        if ((i + 1) % 8 === 0)
+                            await yieldFrame();
+                    }
+                    onProgress?.(++completed, total);
+                    await yieldFrame();
+                }
+            }
+            else {
+                await yieldFrame();
+                onProgress?.(1, total);
+            }
+            if (generation !== this.areaLoadGeneration || this.disposed) {
+                clear();
+                return false;
+            }
+            for (const h of handles)
+                this.stagedCaveHandles.delete(h);
+            if (root)
+                this.stagedCaveRoots.delete(root);
+            this.commitArea(area, root, handles);
+            return true;
+        }
+        catch (error) {
+            clear();
+            throw error;
+        }
+        finally {
+            if (generation === this.areaLoadGeneration)
+                this.areaPreparing = false;
+        }
+    }
+    setArea(area) { if (area === this.area)
+        return; const cave = this.caves.find(c => c.id === area); if (area && !cave)
+        throw Error('Unknown cave'); this.cancelAreaLoad(); const root = cave ? new TransformNode('cave-instance:' + area, this.scene) : undefined, handles = []; try {
+        if (cave && root)
+            for (const p of cave.primitives)
+                handles.push(this.cavePart(root, p));
+        this.commitArea(area, root, handles);
+    }
+    catch (error) {
+        for (const h of handles)
+            h.dispose();
+        root?.dispose();
+        throw error;
+    } }
+    flourish;
+    curiousRoofs;
+    gathering;
+    namedHarvest;
+    castEcho;
+    highlands;
+    sky;
+    weather;
+    weatherChunks = new WeatherChunkCache(REALM_WORLD.seed);
+    wetMaterials = [];
+    moistureAt = -Infinity;
+    npcDetails = [];
+    get weatherState() { return this.weather ? { ...this.weather } : undefined; }
+    viewport = '';
+    ambientLight;
+    keyLight;
+    shadows;
+    waterMaterials = [];
+    pipeline;
+    quality = 'maximum';
+    contextLost = false;
+    ambience;
+    retro = true;
+    flashes = true;
+    ambientText;
+    grass;
+    metricsAt = -Infinity;
+    cachedMetrics = { meshes: 0, triangles: 0, grassTufts: 0, fps: 0 };
+    get worldMetrics() { return { ...this.cachedMetrics }; }
+    wildlife;
+    practiceYard;
+    skillLifeView;
+    xamId;
+    xamSkill;
+    resonanceRoot;
+    resonanceCore;
+    resonanceLight;
+    resonanceNodes = [];
+    resonanceSelected = new Set();
+    resonanceBurstUntil = 0;
+    expansion;
+    setXam(id, skill) { this.xamId = id; this.xamSkill = skill; }
+    setResonance(ids, effectId) { this.resonanceSelected = new Set(ids.filter(id => RESONANCE_NODES.some(node => node.id === id))); for (const node of this.resonanceNodes)
+        node.material.emissiveColor = this.resonanceSelected.has(node.id) ? node.base.scale(1.35) : node.base.scale(.28); if (effectId && isResonanceEffectId(effectId))
+        this.resonanceBurstUntil = performance.now() + resonanceEffect(effectId).durationMs; }
+    pickGround(clientX, clientY) {
+        if (this.disposed || this.contextLost || !Number.isFinite(clientX) || !Number.isFinite(clientY) || !this.canvas)
+            return;
+        const rect = this.canvas.getBoundingClientRect();
+        if (rect.width <= 0 || rect.height <= 0)
+            return;
+        const x = clientX - rect.left, y = clientY - rect.top;
+        if (x < 0 || y < 0 || x > rect.width || y > rect.height)
+            return;
+        const hit = this.scene.pick(x, y, mesh => this.area ? mesh.name === 'cave:' + this.area + ':floor' : (mesh.name === 'world:0' || mesh.metadata?.walkSurface === true));
+        const p = hit?.pickedPoint;
+        return hit?.hit && p ? { x: p.x, y: p.y, z: p.z } : undefined;
+    }
+    projectGround(position) { return this.projectAtHeight(position, .08); }
+    projectLabel(position) { return this.projectAtHeight(position, 2.35); }
+    projectAtHeight(position, heightOffset) { const width = this.canvas?.clientWidth ?? this.engine.getRenderWidth(), height = this.canvas?.clientHeight ?? this.engine.getRenderHeight(), v = Vector3.Project(new Vector3(position.x, position.y + heightOffset, position.z), Matrix.Identity(), this.scene.getTransformMatrix(), this.camera.viewport.toGlobal(width, height)); return { x: v.x, y: v.y, visible: v.z >= 0 && v.z <= 1 && v.x >= 0 && v.x <= width && v.y >= 0 && v.y <= height }; }
+    follow;
+    followId;
+    followTime;
+    movementDirection(right, forward) { return cameraDirection(right, forward, this.camera.alpha); }
+    zoomCamera(factor) { if (!Number.isFinite(factor) || factor <= 0)
+        throw new Error('Invalid zoom'); this.camera.radius = Math.max(6, Math.min(75, this.camera.radius * factor)); this.camera.inertialRadiusOffset = 0; }
+    resetCamera() { this.camera.alpha = -Math.PI / 2; this.camera.beta = Math.PI / 3; this.camera.radius = 23; this.camera.inertialAlphaOffset = 0; this.camera.inertialBetaOffset = 0; this.camera.inertialRadiusOffset = 0; this.camera.inertialPanningX = 0; this.camera.inertialPanningY = 0; if (this.follow)
+        this.camera.setTarget(this.follow.clone(), false, true, true); }
+    get wildlifeCount() { return this.wildlife.count; }
+    get ambienceText() { return this.ambientText; }
+    setFlashes(enabled) { this.flashes = enabled; }
+    setRetro(enabled) { this.retro = enabled; this.scene.fogColor = enabled ? new Color3(.09, .17, .25) : new Color3(.055, .085, .17); if (this.pipeline)
+        this.pipeline.bloomEnabled = !enabled && QUALITY_PRESETS[this.quality].bloom; }
+    get renderState() { return this.contextLost ? 'recovering' : 'ready'; }
+    setQuality(quality) {
+        if (!isVisualQuality(quality))
+            throw new Error('Invalid visual quality');
+        this.quality = quality;
+        this.viewport = '';
+        setEtchedDetail(this.scene, quality !== 'balanced');
+        const preset = QUALITY_PRESETS[quality];
+        if (this.pipeline) {
+            this.pipeline.samples = Math.min(preset.samples, this.engine.getCaps().maxMSAASamples || 1);
+            this.pipeline.fxaaEnabled = preset.fxaa;
+            this.pipeline.bloomEnabled = preset.bloom;
+            this.pipeline.bloomThreshold = .8;
+            this.pipeline.bloomWeight = .2;
+        }
+        if (this.keyLight)
+            this.keyLight.shadowEnabled = quality !== 'balanced';
+        this.setRetro(this.retro);
+    }
+    static create(canvas) { const engine = new Engine(canvas, true, { preserveDrawingBuffer: false, stencil: true }); try {
+        return new Realm3D(canvas, engine);
+    }
+    catch (error) {
+        engine.dispose();
+        throw error;
+    } }
+    retryArtwork() { this.painting?.retryTexture(); this.harvestPainting?.retryTexture(); }
+    get artworkState() { return [this.painting, this.harvestPainting].filter(p => !!p).map(p => ({ title: p.title, state: p.state })); }
+    constructor(canvas, engine, attachControls = true) {
+        this.canvas = canvas;
+        this.engine = engine ?? new Engine(canvas, true, { preserveDrawingBuffer: false, stencil: true });
+        this.engine.setHardwareScalingLevel(1);
+        this.scene = new Scene(this.engine);
+        this.scene.clearColor = new Color4(.025, .045, .11, 1);
+        this.scene.fogMode = Scene.FOGMODE_EXP2;
+        this.scene.fogDensity = .007;
+        this.scene.fogColor = new Color3(.055, .085, .17);
+        this.engine.onContextLostObservable.add(() => { this.contextLost = true; });
+        this.engine.onContextRestoredObservable.add(() => { this.contextLost = false; this.viewport = ''; this.lastPaint = -Infinity; });
+        this.camera = new ArcRotateCamera('realm-camera', -Math.PI / 2, Math.PI / 3, 23, new Vector3(38, 7, 0), this.scene);
+        this.camera.lowerRadiusLimit = 6;
+        this.camera.upperRadiusLimit = 75;
+        this.camera.lowerBetaLimit = .18;
+        this.camera.upperBetaLimit = 1.48;
+        this.camera.inputs.removeByType('ArcRotateCameraKeyboardMoveInput');
+        this.camera.inertia = .72;
+        this.camera.angularSensibilityX = 850;
+        this.camera.angularSensibilityY = 850;
+        this.camera.wheelDeltaPercentage = .012;
+        this.camera.pinchDeltaPercentage = .008;
+        this.camera.panningSensibility = 120;
+        this.camera.panningDistanceLimit = 12;
+        if (attachControls)
+            this.camera.attachControl(canvas, true);
+        if (this.engine instanceof Engine) {
+            this.pipeline = new DefaultRenderingPipeline('realm-quality', true, this.scene, [this.camera]);
+            this.pipeline.imageProcessingEnabled = true;
+            this.scene.imageProcessingConfiguration.exposure = 1.12;
+            this.scene.imageProcessingConfiguration.contrast = 1.18;
+            this.setQuality('maximum');
+        }
+        const sky = this.ambientLight = new HemisphericLight('moon-ambient', new Vector3(0, 1, 0), this.scene);
+        sky.diffuse = new Color3(.72, .82, 1);
+        sky.groundColor = new Color3(.24, .20, .13);
+        sky.intensity = .95;
+        const moon = this.keyLight = new DirectionalLight('moon', new Vector3(-.3, -1, .3), this.scene);
+        moon.intensity = 1.2;
+        moon.diffuse = new Color3(.86, .9, 1);
+        if (this.engine instanceof Engine) {
+            this.shadows = new ShadowGenerator(1024, moon);
+            this.shadows.usePercentageCloserFiltering = true;
+            this.shadows.setDarkness(.35);
+            moon.shadowMinZ = 1;
+            moon.shadowMaxZ = 200;
+        }
+        const realm = createRealmScene();
+        this.namedHarvest = createHarvest3D(this.scene, realm.namedHarvest);
+        this.caves = realm.caves;
+        this.curiousRoofs = createCuriousRoofs(this.scene, realm.buildings);
+        crossingScene(REALM_WORLD, realm.plan).forEach((data, i) => { const mounted = mountBabylonMesh(this.scene, 'world:' + i, data); mounted.mesh.metadata = { walkSurface: data.role === 'walk', parts: data.parts ?? [] }; mounted.mesh.isPickable = i === 0 || data.role === 'walk'; styleRetroMesh(mounted.mesh, i === 0); mounted.mesh.receiveShadows = true; if (data.role === 'water' || data.color === '#487F87') {
+            waterMaterial(this.scene, mounted.mesh);
+            if (mounted.mesh.material instanceof StandardMaterial)
+                this.waterMaterials.push(mounted.mesh.material);
+        } if (mounted.mesh.material instanceof StandardMaterial)
+            this.wetMaterials.push({ material: mounted.mesh.material, base: mounted.mesh.material.diffuseColor.clone(), cx: Math.floor(mounted.mesh.getBoundingInfo().boundingBox.centerWorld.x / 64), cz: Math.floor(mounted.mesh.getBoundingInfo().boundingBox.centerWorld.z / 64) }); });
+        const reserved = (x, z) => realm.plan.surfaces.some(s => x >= s.bounds.minX - 1 && x <= s.bounds.maxX + 1 && z >= s.bounds.minZ - 1 && z <= s.bounds.maxZ + 1) || [realm.plan.start, realm.plan.goal].some(p => Math.hypot(x - p.x, z - p.z) < 3);
+        const waterPoints = [];
+        for (let x = realm.plan.bounds.minX + 3; x < realm.plan.bounds.maxX - 3 && waterPoints.length < 8; x += 3)
+            for (const z of [-10, 10]) {
+                const g = realm.construction.terrainAt(x, z);
+                if (g.waterDepth > .7 && !reserved(x, z) && waterPoints.length < 8)
+                    waterPoints.push({ x, y: g.height + g.waterDepth, z });
+            }
+        this.flourish = createRealmFlourish(this.scene, flourishSites(REALM_WORLD.seed, realm.plan.bounds, (x, z) => realm.construction.terrainAt(x, z), reserved), waterPoints);
+        this.sky = new RealmSky3D(this.scene, REALM_WORLD.seed);
+        this.grass = createRetroGrass(this.scene, REALM_WORLD.seed, [realm.plan.start, realm.plan.goal], (x, z) => realm.construction.terrainAt(x, z));
+        this.skillLifeView = createSkillLife3D(this.scene, realm.plan.start);
+        this.practiceYard = createPracticeYard(this.scene, realm.plan.start, p => realm.navigation.check(p));
+        this.castPlacements = placeRealmCast(realm.plan.start, realm.plan.goal, p => realm.navigation.check(p));
+        const host = this.castPlacements.find(p => p.id === 'tovik');
+        if (host) {
+            const z = host.position.z - 1.6, x = host.position.x;
+            this.painting = createWallPainting(this.scene, { x, y: realm.construction.terrainAt(x, z).height, z }, this.engine instanceof Engine);
+        }
+        const apothecary = this.castPlacements.find(p => p.id === 'mirella');
+        if (apothecary) {
+            const x = apothecary.position.x, z = apothecary.position.z + 1.6;
+            this.harvestPainting = createWallPainting(this.scene, { x, y: realm.construction.terrainAt(x, z).height, z }, this.engine instanceof Engine, 'harvest');
+            this.harvestPainting.root.rotation.y = Math.PI;
+        }
+        const pin = this.castPlacements.find(p => p.id === 'pin')?.position, branik = this.castPlacements.find(p => p.id === 'branik')?.position;
+        for (const placement of this.castPlacements)
+            if (!['halden', 'pin', 'branik'].includes(placement.id))
+                this.cast.push({ placement, hero: createNamedNPC3D(this.scene, 'cast:' + placement.id, placement.id) });
+        this.ambience = new RealmAmbience3D(this.scene, REALM_WORLD.seed, [realm.plan.start, realm.plan.goal], p => realm.construction.terrainAt(p.x, p.z).height, pin && branik ? { pin, branik } : undefined);
+        const wildlifeGround = (x, z) => realm.construction.terrainAt(x, z);
+        this.wildlife = new Wildlife3D(this.scene, wildlifeGround);
+        this.wildlife.sync([...wildlifeForRealm(REALM_WORLD, [realm.plan.start, realm.plan.goal], wildlifeGround).filter(n => !['yak', 'panda', 'gull'].includes(n.species)), ...highlandWildlife(highlandTrail(realm.navigation, realm.plan.start, realm.plan.goal), realm.navigation)]);
+        const glow = new StandardMaterial('lantern-glow', this.scene);
+        glow.emissiveColor = new Color3(1, .55, .13);
+        glow.diffuseColor = new Color3(1, .72, .25);
+        for (const p of [realm.plan.start, realm.plan.goal]) {
+            const point = realm.navigation.check(p);
+            if (!point.ok)
+                continue;
+            for (const side of [-1, 1]) {
+                const lamp = MeshBuilder.CreateSphere('landing-lantern', { diameter: .5, segments: 6 }, this.scene);
+                lamp.position.set(point.position.x, point.position.y + 2.1, side * 2);
+                lamp.material = glow;
+                const light = new PointLight('lantern', lamp.position, this.scene);
+                light.diffuse = new Color3(1, .56, .2);
+                light.intensity = 1.8;
+                light.range = 12;
+            }
+        }
+        this.halden = createNamedNPC3D(this.scene, 'halden', 'halden');
+        this.warden = createHero3D(this.scene, 'warden', 'elder');
+        this.warden.root.scaling.setAll(1.4);
+        this.npcDetails = [decorateRealmNPC(this.scene, 'warden', this.warden.root, 'warden')];
+        this.ring = MeshBuilder.CreateTorus('pulse-ring', { diameter: 8, thickness: .06, tessellation: 48 }, this.scene);
+        const m = new StandardMaterial('pulse', this.scene);
+        m.emissiveColor = new Color3(.4, .8, .75);
+        this.ring.material = m;
+        const codexPoint = realmCodexPoint(realm), codexX = codexPoint.x, codexZ = codexPoint.z, codexY = codexPoint.y;
+        this.resonanceRoot = new TransformNode('polycodex-root', this.scene);
+        this.resonanceRoot.position.set(codexX, codexY + 2.35, codexZ);
+        const core = MeshBuilder.CreatePolyhedron('polycodex-dodecahedron', { type: 2, size: 1.25 }, this.scene);
+        core.parent = this.resonanceRoot;
+        this.resonanceCore = new StandardMaterial('polycodex-core', this.scene);
+        this.resonanceCore.diffuseColor = new Color3(.08, .18, .24);
+        this.resonanceCore.emissiveColor = new Color3(.10, .48, .62);
+        this.resonanceCore.specularColor = new Color3(.6, .7, .8);
+        core.material = this.resonanceCore;
+        const halo = MeshBuilder.CreateTorus('polycodex-halo', { diameter: 5, thickness: .035, tessellation: 64 }, this.scene);
+        halo.parent = this.resonanceRoot;
+        halo.rotation.x = Math.PI / 2;
+        const haloMat = new StandardMaterial('polycodex-halo-mat', this.scene);
+        haloMat.emissiveColor = new Color3(.18, .55, .65);
+        haloMat.alpha = .75;
+        halo.material = haloMat;
+        for (const [index, node] of RESONANCE_NODES.entries()) {
+            const angle = index / RESONANCE_NODES.length * Math.PI * 2;
+            const gem = MeshBuilder.CreateSphere('polycodex-node-' + node.id, { diameter: .33, segments: 8 }, this.scene);
+            gem.parent = this.resonanceRoot;
+            gem.position.set(Math.cos(angle) * 2.5, Math.sin(angle) * 2.5, 0);
+            const mat = new StandardMaterial('polycodex-node-mat-' + node.id, this.scene), base = Color3.FromHexString(node.color);
+            mat.diffuseColor = base.scale(.45);
+            mat.emissiveColor = base.scale(.28);
+            mat.specularColor = base.scale(.6);
+            gem.material = mat;
+            this.resonanceNodes.push({ id: node.id, material: mat, base });
+        }
+        this.resonanceLight = new PointLight('polycodex-light', this.resonanceRoot.position.clone(), this.scene);
+        this.resonanceLight.diffuse = new Color3(.2, .75, .95);
+        this.resonanceLight.intensity = 1.15;
+        this.resonanceLight.range = 11;
+        this.expansion = createCelestialExpansion(this.scene, realm.plan.start, { x: codexX, y: codexY, z: codexZ }, realm.plan.goal);
+        this.gathering = createGatherNodes3D(this.scene, realm.plan.goal, p => realm.navigation.check(p));
+        this.castEcho = new CastEcho3D(this.scene);
+        this.highlands = createHighlands3D(this.scene, highlandTrail(realm.navigation, realm.plan.start, realm.plan.goal));
+        this.outdoorRoot = new TransformNode('outdoor-instance', this.scene);
+        for (const node of [...this.scene.rootNodes])
+            if (node !== this.outdoorRoot && node !== this.camera && !this.scene.lights.some(l => l === node))
+                node.parent = this.outdoorRoot;
+    }
+    update(players, game, local, now, paused, wind = 0) {
+        if (this.disposed || this.contextLost || now - this.lastPaint < 1000 / QUALITY_PRESETS[this.quality].fps || (typeof document !== 'undefined' && document.hidden))
+            return;
+        this.lastPaint = now;
+        const interior = this.curiousRoofs.update(players.find(p => p.id === local)?.position);
+        this.camera.upperBetaLimit = interior ? 1.05 : 1.48;
+        this.camera.lowerRadiusLimit = interior ? 10 : 6;
+        if (interior) {
+            this.camera.beta = Math.min(this.camera.beta, 1.05);
+            this.camera.radius = Math.max(this.camera.radius, 10);
+        }
+        const keep = new Set(players.map(p => p.id));
+        for (const [id, entry] of this.heroes)
+            if (!keep.has(id)) {
+                entry.hero.dispose();
+                this.heroes.delete(id);
+            }
+        for (const p of players) {
+            const appearance = game?.players.find(a => a.id === p.id), skin = appearance?.skin ?? 'adventurer';
+            let entry = this.heroes.get(p.id);
+            if (!entry || entry.skin !== skin) {
+                entry?.hero.dispose();
+                entry = { skin, hero: createHero3D(this.scene, p.id, skin) };
+                this.heroes.set(p.id, entry);
+            }
+            entry.hero.weapon(appearance?.weapon ?? null);
+            entry.hero.update(p.position, now, paused, wind, p.id === local && game?.life?.job ? practiceGesture(lifeRecipe(game.life.job.id).skill) : p.id === local && game?.life?.course ? practiceGesture('agility') : p.id === local && game?.practiceChallenge ? practiceGesture(game.practiceChallenge.skill) : p.id === this.xamId && isPracticeSkill(this.xamSkill) ? practiceGesture(this.xamSkill) : 'idle');
+            if (p.id === local) {
+                const target = new Vector3(p.position.x, p.position.y + 1.15, p.position.z), dt = this.followTime === undefined ? 0 : Math.max(0, (now - this.followTime) / 1000);
+                if (!this.follow || this.followId !== local || Vector3.Distance(target, this.follow) > 8) {
+                    this.follow = target;
+                    this.camera.setTarget(target.clone(), false, true, true);
+                }
+                else {
+                    const next = Vector3.Lerp(this.follow, target, paused ? 1 : 1 - Math.exp(-9 * Math.min(dt, .1)));
+                    this.camera.setTarget(this.camera.target.add(next.subtract(this.follow)), false, true, true);
+                    this.follow = next;
+                }
+                this.followId = local;
+                this.followTime = now;
+                this.camera.panningOriginTarget = this.follow.clone();
+            }
+        }
+        this.halden.root.setEnabled(!!game);
+        if (game) {
+            this.halden.update(game.camp, now, paused);
+            this.warden.root.setEnabled(game.encounter.hp > 0);
+            this.warden.update(game.beacon.position, now, paused);
+            this.ring.position.set(game.beacon.position.x, game.beacon.position.y + .04, game.beacon.position.z);
+            this.ring.material.emissiveColor = game.encounter.strikeAt ? new Color3(1, .35, .12) : new Color3(.3, .65, .65);
+        }
+        else {
+            this.warden.root.setEnabled(false);
+            this.ring.setEnabled(false);
+        }
+        if (game)
+            this.ring.setEnabled(game.encounter.hp > 0);
+        const weatherClock = game ? game.tick * 50 : now;
+        this.weather = this.sky.update(weatherClock, this.camera.target, paused, this.quality, this.retro);
+        if (!paused && Math.abs(weatherClock - this.moistureAt) >= 100) {
+            this.moistureAt = weatherClock;
+            for (const entry of this.wetMaterials) {
+                const w = this.weatherChunks.at(weatherClock, entry.cx, entry.cz).wetness;
+                entry.material.diffuseColor.copyFrom(entry.base.scale(1 - w * .16));
+                entry.material.specularColor.set(w * .08, w * .08, w * .08);
+            }
+        }
+        const burst = now < this.resonanceBurstUntil;
+        this.resonanceRoot.rotation.y = now * .00017;
+        this.resonanceRoot.rotation.z = Math.sin(now * .00045) * .035;
+        this.resonanceRoot.scaling.setAll(burst ? 1.04 + Math.sin(now * .01) * .025 : 1);
+        this.resonanceCore.emissiveColor = burst ? new Color3(.35, .9, 1) : new Color3(.10, .48, .62);
+        this.resonanceLight.intensity = burst ? 2.6 : 1.15;
+        this.expansion.update(now, paused, game?.resonance?.activeEffect ?? undefined);
+        if (game)
+            this.gathering.update(game.gatherNodes, now, paused);
+        this.castEcho.update(local, game?.resonance, players.find(p => p.id === local)?.position, now, paused, this.quality !== 'balanced');
+        if (this.area) {
+            const cx = Math.cos(this.camera.alpha), cz = Math.sin(this.camera.alpha);
+            for (const h of this.caveHandles) {
+                if (/:side-[+-]?1$/.test(h.mesh.name))
+                    h.mesh.visibility = h.mesh.name.endsWith('-1') ? (cx < -.25 ? .16 : 1) : (cx > .25 ? .16 : 1);
+                if (/:end-[+-]?1$/.test(h.mesh.name))
+                    h.mesh.visibility = h.mesh.name.endsWith('-1') ? (cz < -.25 ? .16 : 1) : (cz > .25 ? .16 : 1);
+            }
+        }
+        updateWaterFlow(this.scene, now, paused);
+        if (game)
+            this.namedHarvest.update(game.harvestWorld);
+        const day = this.sky.daylight.day;
+        this.flourish.update(now, paused, this.quality, day);
+        if (this.ambientLight)
+            this.ambientLight.intensity = .55 + day * .4;
+        if (this.keyLight) {
+            this.keyLight.intensity = .65 + day * .6;
+            this.keyLight.diffuse = Color3.Lerp(new Color3(.65, .76, 1), new Color3(1, .91, .73), day);
+            this.keyLight.position.set(this.camera.target.x + 30, this.camera.target.y + 60, this.camera.target.z - 30);
+        }
+        for (const m of this.waterMaterials) {
+            m.specularColor.set(.3 + day * .25, .4 + day * .2, .5 + day * .15);
+            m.diffuseColor = Color3.Lerp(new Color3(.15, .32, .42), new Color3(.25, .57, .62), day);
+        }
+        if (this.shadows) {
+            const map = this.shadows.getShadowMap();
+            if (map)
+                map.renderList = [...this.heroes.values()].flatMap(e => e.hero.root.getChildMeshes()).slice(0, 96);
+        }
+        this.ambientText = this.ambience.update(now, paused, this.flashes && !paused);
+        this.wildlife.update(now, paused);
+        this.highlands.update(now, paused);
+        for (const { placement, hero } of this.cast)
+            hero.update(placement.position, now, paused, wind, placement.id === 'mirella' ? 'focus' : placement.id === 'kestrel' ? 'wave' : 'idle');
+        const viewport = `${this.canvas?.clientWidth ?? this.engine.getRenderWidth()}:${this.canvas?.clientHeight ?? this.engine.getRenderHeight()}:${globalThis.devicePixelRatio || 1}`;
+        if (viewport !== this.viewport) {
+            this.viewport = viewport;
+            const scaling = 1 / Math.min(Math.max(1, globalThis.devicePixelRatio || 1), QUALITY_PRESETS[this.quality].pixelRatio);
+            if (scaling !== this.engine.getHardwareScalingLevel())
+                this.engine.setHardwareScalingLevel(scaling);
+            else
+                this.engine.resize();
+        }
+        if (!this.areaPreparing)
+            this.setArea(caveAt(players.find(p => p.id === local)?.position));
+        this.skillLifeView.update(game?.life, game?.tick ?? 0, now, paused, !this.area);
+        this.scene.clearColor = this.area ? new Color4(.025, .03, .045, 1) : new Color4(.025, .045, .11, 1);
+        this.scene.fogDensity = this.area ? .012 : .007;
+        if (this.area && this.ambientLight)
+            this.ambientLight.intensity = .8;
+        if (this.area === MINE_ID && game) {
+            for (const h of this.caveHandles) {
+                const found = /^cave:mountain-mine:scorpion-([0-2])-/.exec(h.mesh.name);
+                if (found) {
+                    const m = game.caveWorld.scorpions[Number(found[1])];
+                    h.mesh.setEnabled(m.hp > 0);
+                    if (h.mesh.name.endsWith('-body'))
+                        h.mesh.scaling.y = paused ? 1 : 1 + Math.sin(now * .003 + Number(found[1])) * .035;
+                    if (h.mesh.material instanceof StandardMaterial)
+                        h.mesh.material.emissiveColor.set(m.poison ? .12 : 0, m.poison ? .25 : 0, 0);
+                }
+            }
+        }
+        this.scene.render();
+        if (now - this.metricsAt >= 1000) {
+            this.metricsAt = now;
+            this.cachedMetrics = { meshes: this.scene.meshes.filter(m => m.isEnabled()).length, triangles: this.scene.meshes.filter(m => m.isEnabled()).reduce((n, m) => n + (m instanceof LinesMesh ? 0 : Math.floor(m.getTotalIndices() / 3)), 0), grassTufts: this.grass.count, fps: this.engine.getFps() };
+        }
+    }
+    dispose() { if (!this.disposed) {
+        this.disposed = true;
+        this.cancelAreaLoad();
+        for (const e of this.heroes.values())
+            e.hero.dispose();
+        for (const detail of this.npcDetails)
+            detail.dispose();
+        for (const actor of this.cast)
+            actor.hero.dispose();
+        this.cast.length = 0;
+        this.halden.dispose();
+        this.warden.dispose();
+        this.painting?.dispose();
+        this.harvestPainting?.dispose();
+        this.sky.dispose();
+        this.wetMaterials.length = 0;
+        this.weatherChunks.clear();
+        this.ambience.dispose();
+        this.wildlife.dispose();
+        this.grass.dispose();
+        this.practiceYard.dispose();
+        this.skillLifeView.dispose();
+        this.expansion.dispose();
+        this.highlands.dispose();
+        this.castEcho.dispose();
+        this.namedHarvest.dispose();
+        this.gathering.dispose();
+        this.curiousRoofs.dispose();
+        this.flourish.dispose();
+        for (const h of this.caveHandles)
+            h.dispose();
+        this.caveRoot?.dispose();
+        this.outdoorRoot.dispose();
+        this.resonanceRoot.dispose();
+        this.resonanceLight.dispose();
+        this.shadows?.dispose();
+        this.waterMaterials.length = 0;
+        this.pipeline?.dispose();
+        this.scene.dispose();
+        this.engine.dispose();
+    } }
+}

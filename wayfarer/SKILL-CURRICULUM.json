@@ -1,0 +1,4803 @@
+{
+  "version": 2,
+  "connectedStarterActivities": [
+    {
+      "id": "track",
+      "skill": "hunter",
+      "name": "Track and release a seed-mouse",
+      "seconds": 6,
+      "xp": 30,
+      "location": "far",
+      "resources": {},
+      "supplies": {},
+      "outputs": {
+        "seeds": 1
+      },
+      "description": "Follow tracks at the far landing; release the animal and collect one seed."
+    },
+    {
+      "id": "lockbox",
+      "skill": "thieving",
+      "name": "Open a commissioned lockbox",
+      "seconds": 6,
+      "xp": 25,
+      "location": "camp",
+      "resources": {},
+      "supplies": {},
+      "outputs": {
+        "seeds": 1
+      },
+      "description": "Halden’s permitted lockbox commission yields one garden seed."
+    },
+    {
+      "id": "plant",
+      "skill": "farming",
+      "name": "Plant the herb bed",
+      "seconds": 3,
+      "xp": 0,
+      "location": "camp",
+      "resources": {},
+      "supplies": {
+        "seeds": 1
+      },
+      "outputs": {},
+      "effect": "crop",
+      "description": "One seed grows for 30 seconds of connected play. Harvest for two herbs and 35 Farming XP."
+    },
+    {
+      "id": "cook",
+      "skill": "cooking",
+      "name": "Cook a river meal",
+      "seconds": 5,
+      "xp": 30,
+      "location": "camp",
+      "resources": {
+        "fish": 1
+      },
+      "supplies": {},
+      "outputs": {
+        "meals": 1
+      },
+      "description": "One banked fish becomes a meal that heals 6 HP."
+    },
+    {
+      "id": "smelt",
+      "skill": "smithing",
+      "name": "Smelt a lantern bar",
+      "seconds": 6,
+      "xp": 30,
+      "location": "camp",
+      "resources": {
+        "ore": 1,
+        "logs": 1
+      },
+      "supplies": {},
+      "outputs": {
+        "bars": 1
+      },
+      "description": "One banked ore and log become one metal bar."
+    },
+    {
+      "id": "craft",
+      "skill": "crafting",
+      "name": "Assemble a lantern kit",
+      "seconds": 5,
+      "xp": 30,
+      "location": "camp",
+      "resources": {
+        "logs": 1
+      },
+      "supplies": {
+        "bars": 1
+      },
+      "outputs": {
+        "lanterns": 1
+      },
+      "description": "One bar and banked log become a kit for settlement repairs."
+    },
+    {
+      "id": "repair",
+      "skill": "construction",
+      "name": "Contribute a settlement repair",
+      "seconds": 6,
+      "xp": 35,
+      "location": "camp",
+      "resources": {},
+      "supplies": {
+        "lanterns": 1
+      },
+      "outputs": {},
+      "effect": "repair",
+      "description": "Spend one lantern kit; record one personal repair contribution. No player housing yet."
+    },
+    {
+      "id": "fletch",
+      "skill": "fletching",
+      "name": "Fletch six reed arrows",
+      "seconds": 5,
+      "xp": 30,
+      "location": "camp",
+      "resources": {
+        "logs": 1
+      },
+      "supplies": {},
+      "outputs": {
+        "arrows": 6
+      },
+      "description": "One banked log becomes six arrows for the provided field bow."
+    },
+    {
+      "id": "runes",
+      "skill": "runecrafting",
+      "name": "Inscribe four field runes",
+      "seconds": 6,
+      "xp": 30,
+      "location": "camp",
+      "resources": {
+        "ore": 1
+      },
+      "supplies": {},
+      "outputs": {
+        "runes": 4
+      },
+      "description": "One banked ore becomes four runes used by field spells. Runecrafting is its own skill."
+    },
+    {
+      "id": "brew",
+      "skill": "herblore",
+      "name": "Brew a restorative tonic",
+      "seconds": 6,
+      "xp": 35,
+      "location": "camp",
+      "resources": {},
+      "supplies": {
+        "herbs": 1
+      },
+      "outputs": {
+        "potions": 1
+      },
+      "description": "One harvested herb becomes a potion that heals 8 HP."
+    },
+    {
+      "id": "fire",
+      "skill": "firemaking",
+      "name": "Fuel the settlement hearth",
+      "seconds": 4,
+      "xp": 25,
+      "location": "camp",
+      "resources": {
+        "logs": 1
+      },
+      "supplies": {},
+      "outputs": {},
+      "effect": "hearth",
+      "description": "One banked log keeps the hearth warm for 30 seconds; nearby meals heal 2 extra HP."
+    },
+    {
+      "id": "offer",
+      "skill": "prayer",
+      "name": "Offer earned Warden essence",
+      "seconds": 4,
+      "xp": 30,
+      "location": "camp",
+      "resources": {
+        "warden_essence": 1
+      },
+      "supplies": {},
+      "outputs": {},
+      "effect": "prayer",
+      "description": "Offer one banked essence to refill Prayer; active protection reduces incoming damage by 1."
+    }
+  ],
+  "supplyTypes": [
+    "seeds",
+    "herbs",
+    "bars",
+    "lanterns",
+    "arrows",
+    "runes",
+    "meals",
+    "potions"
+  ],
+  "release": "1.13.0",
+  "maxSkillLevel": 99,
+  "maxCombatLevel": 126,
+  "xpTo99": 13034431,
+  "tierLevels": [
+    1,
+    7,
+    14,
+    21,
+    28,
+    35,
+    42,
+    49,
+    56,
+    63,
+    70,
+    77,
+    84,
+    91,
+    99
+  ],
+  "xpThresholds": [
+    0,
+    0,
+    83,
+    174,
+    276,
+    388,
+    512,
+    650,
+    801,
+    969,
+    1154,
+    1358,
+    1584,
+    1833,
+    2107,
+    2411,
+    2746,
+    3115,
+    3523,
+    3973,
+    4470,
+    5018,
+    5624,
+    6291,
+    7028,
+    7842,
+    8740,
+    9730,
+    10824,
+    12031,
+    13363,
+    14833,
+    16456,
+    18247,
+    20224,
+    22406,
+    24815,
+    27473,
+    30408,
+    33648,
+    37224,
+    41171,
+    45529,
+    50339,
+    55649,
+    61512,
+    67983,
+    75127,
+    83014,
+    91721,
+    101333,
+    111945,
+    123660,
+    136594,
+    150872,
+    166636,
+    184040,
+    203254,
+    224466,
+    247886,
+    273742,
+    302288,
+    333804,
+    368599,
+    407015,
+    449428,
+    496254,
+    547953,
+    605032,
+    668051,
+    737627,
+    814445,
+    899257,
+    992895,
+    1096278,
+    1210421,
+    1336443,
+    1475581,
+    1629200,
+    1798808,
+    1986068,
+    2192818,
+    2421087,
+    2673114,
+    2951373,
+    3258594,
+    3597792,
+    3972294,
+    4385776,
+    4842295,
+    5346332,
+    5902831,
+    6517253,
+    7195629,
+    7944614,
+    8771558,
+    9684577,
+    10692629,
+    11805606,
+    13034431
+  ],
+  "methods": [
+    {
+      "id": "attack-1",
+      "skill": "attack",
+      "name": "Novice Precision combat",
+      "level": 1,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "attack-7",
+      "skill": "attack",
+      "name": "Apprentice Precision combat",
+      "level": 7,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "attack-14",
+      "skill": "attack",
+      "name": "Journeyman Precision combat",
+      "level": 14,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "attack-21",
+      "skill": "attack",
+      "name": "Adept Precision combat",
+      "level": 21,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "attack-28",
+      "skill": "attack",
+      "name": "Skilled Precision combat",
+      "level": 28,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "attack-35",
+      "skill": "attack",
+      "name": "Experienced Precision combat",
+      "level": 35,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "attack-42",
+      "skill": "attack",
+      "name": "Artisan Precision combat",
+      "level": 42,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "attack-49",
+      "skill": "attack",
+      "name": "Expert Precision combat",
+      "level": 49,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "attack-56",
+      "skill": "attack",
+      "name": "Veteran Precision combat",
+      "level": 56,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "attack-63",
+      "skill": "attack",
+      "name": "Elite Precision combat",
+      "level": 63,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "attack-70",
+      "skill": "attack",
+      "name": "Master Precision combat",
+      "level": 70,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "attack-77",
+      "skill": "attack",
+      "name": "Grandmaster Precision combat",
+      "level": 77,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "attack-84",
+      "skill": "attack",
+      "name": "Exalted Precision combat",
+      "level": 84,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "attack-91",
+      "skill": "attack",
+      "name": "Legendary Precision combat",
+      "level": 91,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "attack-99",
+      "skill": "attack",
+      "name": "Ascendant Precision combat",
+      "level": 99,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "strength-1",
+      "skill": "strength",
+      "name": "Novice Power combat",
+      "level": 1,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "strength-7",
+      "skill": "strength",
+      "name": "Apprentice Power combat",
+      "level": 7,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "strength-14",
+      "skill": "strength",
+      "name": "Journeyman Power combat",
+      "level": 14,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "strength-21",
+      "skill": "strength",
+      "name": "Adept Power combat",
+      "level": 21,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "strength-28",
+      "skill": "strength",
+      "name": "Skilled Power combat",
+      "level": 28,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "strength-35",
+      "skill": "strength",
+      "name": "Experienced Power combat",
+      "level": 35,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "strength-42",
+      "skill": "strength",
+      "name": "Artisan Power combat",
+      "level": 42,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "strength-49",
+      "skill": "strength",
+      "name": "Expert Power combat",
+      "level": 49,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "strength-56",
+      "skill": "strength",
+      "name": "Veteran Power combat",
+      "level": 56,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "strength-63",
+      "skill": "strength",
+      "name": "Elite Power combat",
+      "level": 63,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "strength-70",
+      "skill": "strength",
+      "name": "Master Power combat",
+      "level": 70,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "strength-77",
+      "skill": "strength",
+      "name": "Grandmaster Power combat",
+      "level": 77,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "strength-84",
+      "skill": "strength",
+      "name": "Exalted Power combat",
+      "level": 84,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "strength-91",
+      "skill": "strength",
+      "name": "Legendary Power combat",
+      "level": 91,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "strength-99",
+      "skill": "strength",
+      "name": "Ascendant Power combat",
+      "level": 99,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "defence-1",
+      "skill": "defence",
+      "name": "Novice Defensive combat",
+      "level": 1,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "defence-7",
+      "skill": "defence",
+      "name": "Apprentice Defensive combat",
+      "level": 7,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "defence-14",
+      "skill": "defence",
+      "name": "Journeyman Defensive combat",
+      "level": 14,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "defence-21",
+      "skill": "defence",
+      "name": "Adept Defensive combat",
+      "level": 21,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "defence-28",
+      "skill": "defence",
+      "name": "Skilled Defensive combat",
+      "level": 28,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "defence-35",
+      "skill": "defence",
+      "name": "Experienced Defensive combat",
+      "level": 35,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "defence-42",
+      "skill": "defence",
+      "name": "Artisan Defensive combat",
+      "level": 42,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "defence-49",
+      "skill": "defence",
+      "name": "Expert Defensive combat",
+      "level": 49,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "defence-56",
+      "skill": "defence",
+      "name": "Veteran Defensive combat",
+      "level": 56,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "defence-63",
+      "skill": "defence",
+      "name": "Elite Defensive combat",
+      "level": 63,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "defence-70",
+      "skill": "defence",
+      "name": "Master Defensive combat",
+      "level": 70,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "defence-77",
+      "skill": "defence",
+      "name": "Grandmaster Defensive combat",
+      "level": 77,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "defence-84",
+      "skill": "defence",
+      "name": "Exalted Defensive combat",
+      "level": 84,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "defence-91",
+      "skill": "defence",
+      "name": "Legendary Defensive combat",
+      "level": 91,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "defence-99",
+      "skill": "defence",
+      "name": "Ascendant Defensive combat",
+      "level": 99,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "ranged-1",
+      "skill": "ranged",
+      "name": "Novice Archery encounters",
+      "level": 1,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "ranged-7",
+      "skill": "ranged",
+      "name": "Apprentice Archery encounters",
+      "level": 7,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "ranged-14",
+      "skill": "ranged",
+      "name": "Journeyman Archery encounters",
+      "level": 14,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "ranged-21",
+      "skill": "ranged",
+      "name": "Adept Archery encounters",
+      "level": 21,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "ranged-28",
+      "skill": "ranged",
+      "name": "Skilled Archery encounters",
+      "level": 28,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "ranged-35",
+      "skill": "ranged",
+      "name": "Experienced Archery encounters",
+      "level": 35,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "ranged-42",
+      "skill": "ranged",
+      "name": "Artisan Archery encounters",
+      "level": 42,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "ranged-49",
+      "skill": "ranged",
+      "name": "Expert Archery encounters",
+      "level": 49,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "ranged-56",
+      "skill": "ranged",
+      "name": "Veteran Archery encounters",
+      "level": 56,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "ranged-63",
+      "skill": "ranged",
+      "name": "Elite Archery encounters",
+      "level": 63,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "ranged-70",
+      "skill": "ranged",
+      "name": "Master Archery encounters",
+      "level": 70,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "ranged-77",
+      "skill": "ranged",
+      "name": "Grandmaster Archery encounters",
+      "level": 77,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "ranged-84",
+      "skill": "ranged",
+      "name": "Exalted Archery encounters",
+      "level": 84,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "ranged-91",
+      "skill": "ranged",
+      "name": "Legendary Archery encounters",
+      "level": 91,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "ranged-99",
+      "skill": "ranged",
+      "name": "Ascendant Archery encounters",
+      "level": 99,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "magic-1",
+      "skill": "magic",
+      "name": "Novice Spell encounters",
+      "level": 1,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "magic-7",
+      "skill": "magic",
+      "name": "Apprentice Spell encounters",
+      "level": 7,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "magic-14",
+      "skill": "magic",
+      "name": "Journeyman Spell encounters",
+      "level": 14,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "magic-21",
+      "skill": "magic",
+      "name": "Adept Spell encounters",
+      "level": 21,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "magic-28",
+      "skill": "magic",
+      "name": "Skilled Spell encounters",
+      "level": 28,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "magic-35",
+      "skill": "magic",
+      "name": "Experienced Spell encounters",
+      "level": 35,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "magic-42",
+      "skill": "magic",
+      "name": "Artisan Spell encounters",
+      "level": 42,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "magic-49",
+      "skill": "magic",
+      "name": "Expert Spell encounters",
+      "level": 49,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "magic-56",
+      "skill": "magic",
+      "name": "Veteran Spell encounters",
+      "level": 56,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "magic-63",
+      "skill": "magic",
+      "name": "Elite Spell encounters",
+      "level": 63,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "magic-70",
+      "skill": "magic",
+      "name": "Master Spell encounters",
+      "level": 70,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "magic-77",
+      "skill": "magic",
+      "name": "Grandmaster Spell encounters",
+      "level": 77,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "magic-84",
+      "skill": "magic",
+      "name": "Exalted Spell encounters",
+      "level": 84,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "magic-91",
+      "skill": "magic",
+      "name": "Legendary Spell encounters",
+      "level": 91,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "magic-99",
+      "skill": "magic",
+      "name": "Ascendant Spell encounters",
+      "level": 99,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "hitpoints-1",
+      "skill": "hitpoints",
+      "name": "Novice Combat endurance",
+      "level": 1,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "hitpoints-7",
+      "skill": "hitpoints",
+      "name": "Apprentice Combat endurance",
+      "level": 7,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "hitpoints-14",
+      "skill": "hitpoints",
+      "name": "Journeyman Combat endurance",
+      "level": 14,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "hitpoints-21",
+      "skill": "hitpoints",
+      "name": "Adept Combat endurance",
+      "level": 21,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "hitpoints-28",
+      "skill": "hitpoints",
+      "name": "Skilled Combat endurance",
+      "level": 28,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "hitpoints-35",
+      "skill": "hitpoints",
+      "name": "Experienced Combat endurance",
+      "level": 35,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "hitpoints-42",
+      "skill": "hitpoints",
+      "name": "Artisan Combat endurance",
+      "level": 42,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "hitpoints-49",
+      "skill": "hitpoints",
+      "name": "Expert Combat endurance",
+      "level": 49,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "hitpoints-56",
+      "skill": "hitpoints",
+      "name": "Veteran Combat endurance",
+      "level": 56,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "hitpoints-63",
+      "skill": "hitpoints",
+      "name": "Elite Combat endurance",
+      "level": 63,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "hitpoints-70",
+      "skill": "hitpoints",
+      "name": "Master Combat endurance",
+      "level": 70,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "hitpoints-77",
+      "skill": "hitpoints",
+      "name": "Grandmaster Combat endurance",
+      "level": 77,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "hitpoints-84",
+      "skill": "hitpoints",
+      "name": "Exalted Combat endurance",
+      "level": 84,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "hitpoints-91",
+      "skill": "hitpoints",
+      "name": "Legendary Combat endurance",
+      "level": 91,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "hitpoints-99",
+      "skill": "hitpoints",
+      "name": "Ascendant Combat endurance",
+      "level": 99,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "prayer-1",
+      "skill": "prayer",
+      "name": "Novice Warden remembrance offering",
+      "level": 1,
+      "xp": 12,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "warden_essence": 1
+      },
+      "outcome": "Offer earned Warden essence at the practice shrine; Prayer XP. No active prayer buffs yet.",
+      "implemented": true
+    },
+    {
+      "id": "prayer-7",
+      "skill": "prayer",
+      "name": "Apprentice Warden remembrance offering",
+      "level": 7,
+      "xp": 16,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "warden_essence": 1
+      },
+      "outcome": "Offer earned Warden essence at the practice shrine; Prayer XP. No active prayer buffs yet.",
+      "implemented": true
+    },
+    {
+      "id": "prayer-14",
+      "skill": "prayer",
+      "name": "Journeyman Warden remembrance offering",
+      "level": 14,
+      "xp": 20,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "warden_essence": 1
+      },
+      "outcome": "Offer earned Warden essence at the practice shrine; Prayer XP. No active prayer buffs yet.",
+      "implemented": true
+    },
+    {
+      "id": "prayer-21",
+      "skill": "prayer",
+      "name": "Adept Warden remembrance offering",
+      "level": 21,
+      "xp": 24,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "warden_essence": 2
+      },
+      "outcome": "Offer earned Warden essence at the practice shrine; Prayer XP. No active prayer buffs yet.",
+      "implemented": true
+    },
+    {
+      "id": "prayer-28",
+      "skill": "prayer",
+      "name": "Skilled Warden remembrance offering",
+      "level": 28,
+      "xp": 28,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "warden_essence": 2
+      },
+      "outcome": "Offer earned Warden essence at the practice shrine; Prayer XP. No active prayer buffs yet.",
+      "implemented": true
+    },
+    {
+      "id": "prayer-35",
+      "skill": "prayer",
+      "name": "Experienced Warden remembrance offering",
+      "level": 35,
+      "xp": 32,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "warden_essence": 2
+      },
+      "outcome": "Offer earned Warden essence at the practice shrine; Prayer XP. No active prayer buffs yet.",
+      "implemented": true
+    },
+    {
+      "id": "prayer-42",
+      "skill": "prayer",
+      "name": "Artisan Warden remembrance offering",
+      "level": 42,
+      "xp": 36,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "warden_essence": 3
+      },
+      "outcome": "Offer earned Warden essence at the practice shrine; Prayer XP. No active prayer buffs yet.",
+      "implemented": true
+    },
+    {
+      "id": "prayer-49",
+      "skill": "prayer",
+      "name": "Expert Warden remembrance offering",
+      "level": 49,
+      "xp": 40,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "warden_essence": 3
+      },
+      "outcome": "Offer earned Warden essence at the practice shrine; Prayer XP. No active prayer buffs yet.",
+      "implemented": true
+    },
+    {
+      "id": "prayer-56",
+      "skill": "prayer",
+      "name": "Veteran Warden remembrance offering",
+      "level": 56,
+      "xp": 44,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "warden_essence": 3
+      },
+      "outcome": "Offer earned Warden essence at the practice shrine; Prayer XP. No active prayer buffs yet.",
+      "implemented": true
+    },
+    {
+      "id": "prayer-63",
+      "skill": "prayer",
+      "name": "Elite Warden remembrance offering",
+      "level": 63,
+      "xp": 48,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "warden_essence": 4
+      },
+      "outcome": "Offer earned Warden essence at the practice shrine; Prayer XP. No active prayer buffs yet.",
+      "implemented": true
+    },
+    {
+      "id": "prayer-70",
+      "skill": "prayer",
+      "name": "Master Warden remembrance offering",
+      "level": 70,
+      "xp": 52,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "warden_essence": 4
+      },
+      "outcome": "Offer earned Warden essence at the practice shrine; Prayer XP. No active prayer buffs yet.",
+      "implemented": true
+    },
+    {
+      "id": "prayer-77",
+      "skill": "prayer",
+      "name": "Grandmaster Warden remembrance offering",
+      "level": 77,
+      "xp": 56,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "warden_essence": 4
+      },
+      "outcome": "Offer earned Warden essence at the practice shrine; Prayer XP. No active prayer buffs yet.",
+      "implemented": true
+    },
+    {
+      "id": "prayer-84",
+      "skill": "prayer",
+      "name": "Exalted Warden remembrance offering",
+      "level": 84,
+      "xp": 60,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "warden_essence": 5
+      },
+      "outcome": "Offer earned Warden essence at the practice shrine; Prayer XP. No active prayer buffs yet.",
+      "implemented": true
+    },
+    {
+      "id": "prayer-91",
+      "skill": "prayer",
+      "name": "Legendary Warden remembrance offering",
+      "level": 91,
+      "xp": 64,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "warden_essence": 5
+      },
+      "outcome": "Offer earned Warden essence at the practice shrine; Prayer XP. No active prayer buffs yet.",
+      "implemented": true
+    },
+    {
+      "id": "prayer-99",
+      "skill": "prayer",
+      "name": "Ascendant Warden remembrance offering",
+      "level": 99,
+      "xp": 68,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "warden_essence": 5
+      },
+      "outcome": "Offer earned Warden essence at the practice shrine; Prayer XP. No active prayer buffs yet.",
+      "implemented": true
+    },
+    {
+      "id": "woodcutting-1",
+      "skill": "woodcutting",
+      "name": "Novice Selective timber harvest",
+      "level": 1,
+      "xp": 25,
+      "kind": "gathering",
+      "location": "Far landing · shared resource site",
+      "costs": {},
+      "outcome": "Gather existing pooled materials with your earned tools; one shared node charge per completion.",
+      "implemented": true
+    },
+    {
+      "id": "woodcutting-7",
+      "skill": "woodcutting",
+      "name": "Apprentice Selective timber harvest",
+      "level": 7,
+      "xp": 30,
+      "kind": "gathering",
+      "location": "Far landing · shared resource site",
+      "costs": {},
+      "outcome": "Gather existing pooled materials with your earned tools; one shared node charge per completion.",
+      "implemented": true
+    },
+    {
+      "id": "woodcutting-14",
+      "skill": "woodcutting",
+      "name": "Journeyman Selective timber harvest",
+      "level": 14,
+      "xp": 35,
+      "kind": "gathering",
+      "location": "Far landing · shared resource site",
+      "costs": {},
+      "outcome": "Gather existing pooled materials with your earned tools; one shared node charge per completion.",
+      "implemented": true
+    },
+    {
+      "id": "woodcutting-21",
+      "skill": "woodcutting",
+      "name": "Adept Selective timber harvest",
+      "level": 21,
+      "xp": 40,
+      "kind": "gathering",
+      "location": "Far landing · shared resource site",
+      "costs": {},
+      "outcome": "Gather existing pooled materials with your earned tools; one shared node charge per completion.",
+      "implemented": true
+    },
+    {
+      "id": "woodcutting-28",
+      "skill": "woodcutting",
+      "name": "Skilled Selective timber harvest",
+      "level": 28,
+      "xp": 45,
+      "kind": "gathering",
+      "location": "Far landing · shared resource site",
+      "costs": {},
+      "outcome": "Gather existing pooled materials with your earned tools; one shared node charge per completion.",
+      "implemented": true
+    },
+    {
+      "id": "woodcutting-35",
+      "skill": "woodcutting",
+      "name": "Experienced Selective timber harvest",
+      "level": 35,
+      "xp": 50,
+      "kind": "gathering",
+      "location": "Far landing · shared resource site",
+      "costs": {},
+      "outcome": "Gather existing pooled materials with your earned tools; one shared node charge per completion.",
+      "implemented": true
+    },
+    {
+      "id": "woodcutting-42",
+      "skill": "woodcutting",
+      "name": "Artisan Selective timber harvest",
+      "level": 42,
+      "xp": 55,
+      "kind": "gathering",
+      "location": "Far landing · shared resource site",
+      "costs": {},
+      "outcome": "Gather existing pooled materials with your earned tools; one shared node charge per completion.",
+      "implemented": true
+    },
+    {
+      "id": "woodcutting-49",
+      "skill": "woodcutting",
+      "name": "Expert Selective timber harvest",
+      "level": 49,
+      "xp": 60,
+      "kind": "gathering",
+      "location": "Far landing · shared resource site",
+      "costs": {},
+      "outcome": "Gather existing pooled materials with your earned tools; one shared node charge per completion.",
+      "implemented": true
+    },
+    {
+      "id": "woodcutting-56",
+      "skill": "woodcutting",
+      "name": "Veteran Selective timber harvest",
+      "level": 56,
+      "xp": 65,
+      "kind": "gathering",
+      "location": "Far landing · shared resource site",
+      "costs": {},
+      "outcome": "Gather existing pooled materials with your earned tools; one shared node charge per completion.",
+      "implemented": true
+    },
+    {
+      "id": "woodcutting-63",
+      "skill": "woodcutting",
+      "name": "Elite Selective timber harvest",
+      "level": 63,
+      "xp": 70,
+      "kind": "gathering",
+      "location": "Far landing · shared resource site",
+      "costs": {},
+      "outcome": "Gather existing pooled materials with your earned tools; one shared node charge per completion.",
+      "implemented": true
+    },
+    {
+      "id": "woodcutting-70",
+      "skill": "woodcutting",
+      "name": "Master Selective timber harvest",
+      "level": 70,
+      "xp": 75,
+      "kind": "gathering",
+      "location": "Far landing · shared resource site",
+      "costs": {},
+      "outcome": "Gather existing pooled materials with your earned tools; one shared node charge per completion.",
+      "implemented": true
+    },
+    {
+      "id": "woodcutting-77",
+      "skill": "woodcutting",
+      "name": "Grandmaster Selective timber harvest",
+      "level": 77,
+      "xp": 80,
+      "kind": "gathering",
+      "location": "Far landing · shared resource site",
+      "costs": {},
+      "outcome": "Gather existing pooled materials with your earned tools; one shared node charge per completion.",
+      "implemented": true
+    },
+    {
+      "id": "woodcutting-84",
+      "skill": "woodcutting",
+      "name": "Exalted Selective timber harvest",
+      "level": 84,
+      "xp": 85,
+      "kind": "gathering",
+      "location": "Far landing · shared resource site",
+      "costs": {},
+      "outcome": "Gather existing pooled materials with your earned tools; one shared node charge per completion.",
+      "implemented": true
+    },
+    {
+      "id": "woodcutting-91",
+      "skill": "woodcutting",
+      "name": "Legendary Selective timber harvest",
+      "level": 91,
+      "xp": 90,
+      "kind": "gathering",
+      "location": "Far landing · shared resource site",
+      "costs": {},
+      "outcome": "Gather existing pooled materials with your earned tools; one shared node charge per completion.",
+      "implemented": true
+    },
+    {
+      "id": "woodcutting-99",
+      "skill": "woodcutting",
+      "name": "Ascendant Selective timber harvest",
+      "level": 99,
+      "xp": 95,
+      "kind": "gathering",
+      "location": "Far landing · shared resource site",
+      "costs": {},
+      "outcome": "Gather existing pooled materials with your earned tools; one shared node charge per completion.",
+      "implemented": true
+    },
+    {
+      "id": "mining-1",
+      "skill": "mining",
+      "name": "Novice Careful seam extraction",
+      "level": 1,
+      "xp": 25,
+      "kind": "gathering",
+      "location": "Far landing · shared resource site",
+      "costs": {},
+      "outcome": "Gather existing pooled materials with your earned tools; one shared node charge per completion.",
+      "implemented": true
+    },
+    {
+      "id": "mining-7",
+      "skill": "mining",
+      "name": "Apprentice Careful seam extraction",
+      "level": 7,
+      "xp": 30,
+      "kind": "gathering",
+      "location": "Far landing · shared resource site",
+      "costs": {},
+      "outcome": "Gather existing pooled materials with your earned tools; one shared node charge per completion.",
+      "implemented": true
+    },
+    {
+      "id": "mining-14",
+      "skill": "mining",
+      "name": "Journeyman Careful seam extraction",
+      "level": 14,
+      "xp": 35,
+      "kind": "gathering",
+      "location": "Far landing · shared resource site",
+      "costs": {},
+      "outcome": "Gather existing pooled materials with your earned tools; one shared node charge per completion.",
+      "implemented": true
+    },
+    {
+      "id": "mining-21",
+      "skill": "mining",
+      "name": "Adept Careful seam extraction",
+      "level": 21,
+      "xp": 40,
+      "kind": "gathering",
+      "location": "Far landing · shared resource site",
+      "costs": {},
+      "outcome": "Gather existing pooled materials with your earned tools; one shared node charge per completion.",
+      "implemented": true
+    },
+    {
+      "id": "mining-28",
+      "skill": "mining",
+      "name": "Skilled Careful seam extraction",
+      "level": 28,
+      "xp": 45,
+      "kind": "gathering",
+      "location": "Far landing · shared resource site",
+      "costs": {},
+      "outcome": "Gather existing pooled materials with your earned tools; one shared node charge per completion.",
+      "implemented": true
+    },
+    {
+      "id": "mining-35",
+      "skill": "mining",
+      "name": "Experienced Careful seam extraction",
+      "level": 35,
+      "xp": 50,
+      "kind": "gathering",
+      "location": "Far landing · shared resource site",
+      "costs": {},
+      "outcome": "Gather existing pooled materials with your earned tools; one shared node charge per completion.",
+      "implemented": true
+    },
+    {
+      "id": "mining-42",
+      "skill": "mining",
+      "name": "Artisan Careful seam extraction",
+      "level": 42,
+      "xp": 55,
+      "kind": "gathering",
+      "location": "Far landing · shared resource site",
+      "costs": {},
+      "outcome": "Gather existing pooled materials with your earned tools; one shared node charge per completion.",
+      "implemented": true
+    },
+    {
+      "id": "mining-49",
+      "skill": "mining",
+      "name": "Expert Careful seam extraction",
+      "level": 49,
+      "xp": 60,
+      "kind": "gathering",
+      "location": "Far landing · shared resource site",
+      "costs": {},
+      "outcome": "Gather existing pooled materials with your earned tools; one shared node charge per completion.",
+      "implemented": true
+    },
+    {
+      "id": "mining-56",
+      "skill": "mining",
+      "name": "Veteran Careful seam extraction",
+      "level": 56,
+      "xp": 65,
+      "kind": "gathering",
+      "location": "Far landing · shared resource site",
+      "costs": {},
+      "outcome": "Gather existing pooled materials with your earned tools; one shared node charge per completion.",
+      "implemented": true
+    },
+    {
+      "id": "mining-63",
+      "skill": "mining",
+      "name": "Elite Careful seam extraction",
+      "level": 63,
+      "xp": 70,
+      "kind": "gathering",
+      "location": "Far landing · shared resource site",
+      "costs": {},
+      "outcome": "Gather existing pooled materials with your earned tools; one shared node charge per completion.",
+      "implemented": true
+    },
+    {
+      "id": "mining-70",
+      "skill": "mining",
+      "name": "Master Careful seam extraction",
+      "level": 70,
+      "xp": 75,
+      "kind": "gathering",
+      "location": "Far landing · shared resource site",
+      "costs": {},
+      "outcome": "Gather existing pooled materials with your earned tools; one shared node charge per completion.",
+      "implemented": true
+    },
+    {
+      "id": "mining-77",
+      "skill": "mining",
+      "name": "Grandmaster Careful seam extraction",
+      "level": 77,
+      "xp": 80,
+      "kind": "gathering",
+      "location": "Far landing · shared resource site",
+      "costs": {},
+      "outcome": "Gather existing pooled materials with your earned tools; one shared node charge per completion.",
+      "implemented": true
+    },
+    {
+      "id": "mining-84",
+      "skill": "mining",
+      "name": "Exalted Careful seam extraction",
+      "level": 84,
+      "xp": 85,
+      "kind": "gathering",
+      "location": "Far landing · shared resource site",
+      "costs": {},
+      "outcome": "Gather existing pooled materials with your earned tools; one shared node charge per completion.",
+      "implemented": true
+    },
+    {
+      "id": "mining-91",
+      "skill": "mining",
+      "name": "Legendary Careful seam extraction",
+      "level": 91,
+      "xp": 90,
+      "kind": "gathering",
+      "location": "Far landing · shared resource site",
+      "costs": {},
+      "outcome": "Gather existing pooled materials with your earned tools; one shared node charge per completion.",
+      "implemented": true
+    },
+    {
+      "id": "mining-99",
+      "skill": "mining",
+      "name": "Ascendant Careful seam extraction",
+      "level": 99,
+      "xp": 95,
+      "kind": "gathering",
+      "location": "Far landing · shared resource site",
+      "costs": {},
+      "outcome": "Gather existing pooled materials with your earned tools; one shared node charge per completion.",
+      "implemented": true
+    },
+    {
+      "id": "fishing-1",
+      "skill": "fishing",
+      "name": "Novice River casting",
+      "level": 1,
+      "xp": 25,
+      "kind": "gathering",
+      "location": "Far landing · shared resource site",
+      "costs": {},
+      "outcome": "Gather existing pooled materials with your earned tools; one shared node charge per completion.",
+      "implemented": true
+    },
+    {
+      "id": "fishing-7",
+      "skill": "fishing",
+      "name": "Apprentice River casting",
+      "level": 7,
+      "xp": 30,
+      "kind": "gathering",
+      "location": "Far landing · shared resource site",
+      "costs": {},
+      "outcome": "Gather existing pooled materials with your earned tools; one shared node charge per completion.",
+      "implemented": true
+    },
+    {
+      "id": "fishing-14",
+      "skill": "fishing",
+      "name": "Journeyman River casting",
+      "level": 14,
+      "xp": 35,
+      "kind": "gathering",
+      "location": "Far landing · shared resource site",
+      "costs": {},
+      "outcome": "Gather existing pooled materials with your earned tools; one shared node charge per completion.",
+      "implemented": true
+    },
+    {
+      "id": "fishing-21",
+      "skill": "fishing",
+      "name": "Adept River casting",
+      "level": 21,
+      "xp": 40,
+      "kind": "gathering",
+      "location": "Far landing · shared resource site",
+      "costs": {},
+      "outcome": "Gather existing pooled materials with your earned tools; one shared node charge per completion.",
+      "implemented": true
+    },
+    {
+      "id": "fishing-28",
+      "skill": "fishing",
+      "name": "Skilled River casting",
+      "level": 28,
+      "xp": 45,
+      "kind": "gathering",
+      "location": "Far landing · shared resource site",
+      "costs": {},
+      "outcome": "Gather existing pooled materials with your earned tools; one shared node charge per completion.",
+      "implemented": true
+    },
+    {
+      "id": "fishing-35",
+      "skill": "fishing",
+      "name": "Experienced River casting",
+      "level": 35,
+      "xp": 50,
+      "kind": "gathering",
+      "location": "Far landing · shared resource site",
+      "costs": {},
+      "outcome": "Gather existing pooled materials with your earned tools; one shared node charge per completion.",
+      "implemented": true
+    },
+    {
+      "id": "fishing-42",
+      "skill": "fishing",
+      "name": "Artisan River casting",
+      "level": 42,
+      "xp": 55,
+      "kind": "gathering",
+      "location": "Far landing · shared resource site",
+      "costs": {},
+      "outcome": "Gather existing pooled materials with your earned tools; one shared node charge per completion.",
+      "implemented": true
+    },
+    {
+      "id": "fishing-49",
+      "skill": "fishing",
+      "name": "Expert River casting",
+      "level": 49,
+      "xp": 60,
+      "kind": "gathering",
+      "location": "Far landing · shared resource site",
+      "costs": {},
+      "outcome": "Gather existing pooled materials with your earned tools; one shared node charge per completion.",
+      "implemented": true
+    },
+    {
+      "id": "fishing-56",
+      "skill": "fishing",
+      "name": "Veteran River casting",
+      "level": 56,
+      "xp": 65,
+      "kind": "gathering",
+      "location": "Far landing · shared resource site",
+      "costs": {},
+      "outcome": "Gather existing pooled materials with your earned tools; one shared node charge per completion.",
+      "implemented": true
+    },
+    {
+      "id": "fishing-63",
+      "skill": "fishing",
+      "name": "Elite River casting",
+      "level": 63,
+      "xp": 70,
+      "kind": "gathering",
+      "location": "Far landing · shared resource site",
+      "costs": {},
+      "outcome": "Gather existing pooled materials with your earned tools; one shared node charge per completion.",
+      "implemented": true
+    },
+    {
+      "id": "fishing-70",
+      "skill": "fishing",
+      "name": "Master River casting",
+      "level": 70,
+      "xp": 75,
+      "kind": "gathering",
+      "location": "Far landing · shared resource site",
+      "costs": {},
+      "outcome": "Gather existing pooled materials with your earned tools; one shared node charge per completion.",
+      "implemented": true
+    },
+    {
+      "id": "fishing-77",
+      "skill": "fishing",
+      "name": "Grandmaster River casting",
+      "level": 77,
+      "xp": 80,
+      "kind": "gathering",
+      "location": "Far landing · shared resource site",
+      "costs": {},
+      "outcome": "Gather existing pooled materials with your earned tools; one shared node charge per completion.",
+      "implemented": true
+    },
+    {
+      "id": "fishing-84",
+      "skill": "fishing",
+      "name": "Exalted River casting",
+      "level": 84,
+      "xp": 85,
+      "kind": "gathering",
+      "location": "Far landing · shared resource site",
+      "costs": {},
+      "outcome": "Gather existing pooled materials with your earned tools; one shared node charge per completion.",
+      "implemented": true
+    },
+    {
+      "id": "fishing-91",
+      "skill": "fishing",
+      "name": "Legendary River casting",
+      "level": 91,
+      "xp": 90,
+      "kind": "gathering",
+      "location": "Far landing · shared resource site",
+      "costs": {},
+      "outcome": "Gather existing pooled materials with your earned tools; one shared node charge per completion.",
+      "implemented": true
+    },
+    {
+      "id": "fishing-99",
+      "skill": "fishing",
+      "name": "Ascendant River casting",
+      "level": 99,
+      "xp": 95,
+      "kind": "gathering",
+      "location": "Far landing · shared resource site",
+      "costs": {},
+      "outcome": "Gather existing pooled materials with your earned tools; one shared node charge per completion.",
+      "implemented": true
+    },
+    {
+      "id": "agility-1",
+      "skill": "agility",
+      "name": "Novice Balance routes",
+      "level": 1,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "agility-7",
+      "skill": "agility",
+      "name": "Apprentice Balance routes",
+      "level": 7,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "agility-14",
+      "skill": "agility",
+      "name": "Journeyman Balance routes",
+      "level": 14,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "agility-21",
+      "skill": "agility",
+      "name": "Adept Balance routes",
+      "level": 21,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "agility-28",
+      "skill": "agility",
+      "name": "Skilled Balance routes",
+      "level": 28,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "agility-35",
+      "skill": "agility",
+      "name": "Experienced Balance routes",
+      "level": 35,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "agility-42",
+      "skill": "agility",
+      "name": "Artisan Balance routes",
+      "level": 42,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "agility-49",
+      "skill": "agility",
+      "name": "Expert Balance routes",
+      "level": 49,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "agility-56",
+      "skill": "agility",
+      "name": "Veteran Balance routes",
+      "level": 56,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "agility-63",
+      "skill": "agility",
+      "name": "Elite Balance routes",
+      "level": 63,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "agility-70",
+      "skill": "agility",
+      "name": "Master Balance routes",
+      "level": 70,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "agility-77",
+      "skill": "agility",
+      "name": "Grandmaster Balance routes",
+      "level": 77,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "agility-84",
+      "skill": "agility",
+      "name": "Exalted Balance routes",
+      "level": 84,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "agility-91",
+      "skill": "agility",
+      "name": "Legendary Balance routes",
+      "level": 91,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "agility-99",
+      "skill": "agility",
+      "name": "Ascendant Balance routes",
+      "level": 99,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "cooking-1",
+      "skill": "cooking",
+      "name": "Novice River kitchen commission",
+      "level": 1,
+      "xp": 12,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "fish": 1
+      },
+      "outcome": "Prepare and donate a meal to Halden’s travellers; Cooking XP. No stored food item yet.",
+      "implemented": true
+    },
+    {
+      "id": "cooking-7",
+      "skill": "cooking",
+      "name": "Apprentice River kitchen commission",
+      "level": 7,
+      "xp": 16,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "fish": 1
+      },
+      "outcome": "Prepare and donate a meal to Halden’s travellers; Cooking XP. No stored food item yet.",
+      "implemented": true
+    },
+    {
+      "id": "cooking-14",
+      "skill": "cooking",
+      "name": "Journeyman River kitchen commission",
+      "level": 14,
+      "xp": 20,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "fish": 1
+      },
+      "outcome": "Prepare and donate a meal to Halden’s travellers; Cooking XP. No stored food item yet.",
+      "implemented": true
+    },
+    {
+      "id": "cooking-21",
+      "skill": "cooking",
+      "name": "Adept River kitchen commission",
+      "level": 21,
+      "xp": 24,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "fish": 2
+      },
+      "outcome": "Prepare and donate a meal to Halden’s travellers; Cooking XP. No stored food item yet.",
+      "implemented": true
+    },
+    {
+      "id": "cooking-28",
+      "skill": "cooking",
+      "name": "Skilled River kitchen commission",
+      "level": 28,
+      "xp": 28,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "fish": 2
+      },
+      "outcome": "Prepare and donate a meal to Halden’s travellers; Cooking XP. No stored food item yet.",
+      "implemented": true
+    },
+    {
+      "id": "cooking-35",
+      "skill": "cooking",
+      "name": "Experienced River kitchen commission",
+      "level": 35,
+      "xp": 32,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "fish": 2
+      },
+      "outcome": "Prepare and donate a meal to Halden’s travellers; Cooking XP. No stored food item yet.",
+      "implemented": true
+    },
+    {
+      "id": "cooking-42",
+      "skill": "cooking",
+      "name": "Artisan River kitchen commission",
+      "level": 42,
+      "xp": 36,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "fish": 3
+      },
+      "outcome": "Prepare and donate a meal to Halden’s travellers; Cooking XP. No stored food item yet.",
+      "implemented": true
+    },
+    {
+      "id": "cooking-49",
+      "skill": "cooking",
+      "name": "Expert River kitchen commission",
+      "level": 49,
+      "xp": 40,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "fish": 3
+      },
+      "outcome": "Prepare and donate a meal to Halden’s travellers; Cooking XP. No stored food item yet.",
+      "implemented": true
+    },
+    {
+      "id": "cooking-56",
+      "skill": "cooking",
+      "name": "Veteran River kitchen commission",
+      "level": 56,
+      "xp": 44,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "fish": 3
+      },
+      "outcome": "Prepare and donate a meal to Halden’s travellers; Cooking XP. No stored food item yet.",
+      "implemented": true
+    },
+    {
+      "id": "cooking-63",
+      "skill": "cooking",
+      "name": "Elite River kitchen commission",
+      "level": 63,
+      "xp": 48,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "fish": 4
+      },
+      "outcome": "Prepare and donate a meal to Halden’s travellers; Cooking XP. No stored food item yet.",
+      "implemented": true
+    },
+    {
+      "id": "cooking-70",
+      "skill": "cooking",
+      "name": "Master River kitchen commission",
+      "level": 70,
+      "xp": 52,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "fish": 4
+      },
+      "outcome": "Prepare and donate a meal to Halden’s travellers; Cooking XP. No stored food item yet.",
+      "implemented": true
+    },
+    {
+      "id": "cooking-77",
+      "skill": "cooking",
+      "name": "Grandmaster River kitchen commission",
+      "level": 77,
+      "xp": 56,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "fish": 4
+      },
+      "outcome": "Prepare and donate a meal to Halden’s travellers; Cooking XP. No stored food item yet.",
+      "implemented": true
+    },
+    {
+      "id": "cooking-84",
+      "skill": "cooking",
+      "name": "Exalted River kitchen commission",
+      "level": 84,
+      "xp": 60,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "fish": 5
+      },
+      "outcome": "Prepare and donate a meal to Halden’s travellers; Cooking XP. No stored food item yet.",
+      "implemented": true
+    },
+    {
+      "id": "cooking-91",
+      "skill": "cooking",
+      "name": "Legendary River kitchen commission",
+      "level": 91,
+      "xp": 64,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "fish": 5
+      },
+      "outcome": "Prepare and donate a meal to Halden’s travellers; Cooking XP. No stored food item yet.",
+      "implemented": true
+    },
+    {
+      "id": "cooking-99",
+      "skill": "cooking",
+      "name": "Ascendant River kitchen commission",
+      "level": 99,
+      "xp": 68,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "fish": 5
+      },
+      "outcome": "Prepare and donate a meal to Halden’s travellers; Cooking XP. No stored food item yet.",
+      "implemented": true
+    },
+    {
+      "id": "crafting-1",
+      "skill": "crafting",
+      "name": "Novice Lantern-frame commission",
+      "level": 1,
+      "xp": 12,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 1,
+        "ore": 1
+      },
+      "outcome": "Build and donate lantern frames; Crafting XP.",
+      "implemented": true
+    },
+    {
+      "id": "crafting-7",
+      "skill": "crafting",
+      "name": "Apprentice Lantern-frame commission",
+      "level": 7,
+      "xp": 16,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 1,
+        "ore": 1
+      },
+      "outcome": "Build and donate lantern frames; Crafting XP.",
+      "implemented": true
+    },
+    {
+      "id": "crafting-14",
+      "skill": "crafting",
+      "name": "Journeyman Lantern-frame commission",
+      "level": 14,
+      "xp": 20,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 1,
+        "ore": 1
+      },
+      "outcome": "Build and donate lantern frames; Crafting XP.",
+      "implemented": true
+    },
+    {
+      "id": "crafting-21",
+      "skill": "crafting",
+      "name": "Adept Lantern-frame commission",
+      "level": 21,
+      "xp": 24,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 2,
+        "ore": 2
+      },
+      "outcome": "Build and donate lantern frames; Crafting XP.",
+      "implemented": true
+    },
+    {
+      "id": "crafting-28",
+      "skill": "crafting",
+      "name": "Skilled Lantern-frame commission",
+      "level": 28,
+      "xp": 28,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 2,
+        "ore": 2
+      },
+      "outcome": "Build and donate lantern frames; Crafting XP.",
+      "implemented": true
+    },
+    {
+      "id": "crafting-35",
+      "skill": "crafting",
+      "name": "Experienced Lantern-frame commission",
+      "level": 35,
+      "xp": 32,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 2,
+        "ore": 2
+      },
+      "outcome": "Build and donate lantern frames; Crafting XP.",
+      "implemented": true
+    },
+    {
+      "id": "crafting-42",
+      "skill": "crafting",
+      "name": "Artisan Lantern-frame commission",
+      "level": 42,
+      "xp": 36,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 3,
+        "ore": 3
+      },
+      "outcome": "Build and donate lantern frames; Crafting XP.",
+      "implemented": true
+    },
+    {
+      "id": "crafting-49",
+      "skill": "crafting",
+      "name": "Expert Lantern-frame commission",
+      "level": 49,
+      "xp": 40,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 3,
+        "ore": 3
+      },
+      "outcome": "Build and donate lantern frames; Crafting XP.",
+      "implemented": true
+    },
+    {
+      "id": "crafting-56",
+      "skill": "crafting",
+      "name": "Veteran Lantern-frame commission",
+      "level": 56,
+      "xp": 44,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 3,
+        "ore": 3
+      },
+      "outcome": "Build and donate lantern frames; Crafting XP.",
+      "implemented": true
+    },
+    {
+      "id": "crafting-63",
+      "skill": "crafting",
+      "name": "Elite Lantern-frame commission",
+      "level": 63,
+      "xp": 48,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 4,
+        "ore": 4
+      },
+      "outcome": "Build and donate lantern frames; Crafting XP.",
+      "implemented": true
+    },
+    {
+      "id": "crafting-70",
+      "skill": "crafting",
+      "name": "Master Lantern-frame commission",
+      "level": 70,
+      "xp": 52,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 4,
+        "ore": 4
+      },
+      "outcome": "Build and donate lantern frames; Crafting XP.",
+      "implemented": true
+    },
+    {
+      "id": "crafting-77",
+      "skill": "crafting",
+      "name": "Grandmaster Lantern-frame commission",
+      "level": 77,
+      "xp": 56,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 4,
+        "ore": 4
+      },
+      "outcome": "Build and donate lantern frames; Crafting XP.",
+      "implemented": true
+    },
+    {
+      "id": "crafting-84",
+      "skill": "crafting",
+      "name": "Exalted Lantern-frame commission",
+      "level": 84,
+      "xp": 60,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 5,
+        "ore": 5
+      },
+      "outcome": "Build and donate lantern frames; Crafting XP.",
+      "implemented": true
+    },
+    {
+      "id": "crafting-91",
+      "skill": "crafting",
+      "name": "Legendary Lantern-frame commission",
+      "level": 91,
+      "xp": 64,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 5,
+        "ore": 5
+      },
+      "outcome": "Build and donate lantern frames; Crafting XP.",
+      "implemented": true
+    },
+    {
+      "id": "crafting-99",
+      "skill": "crafting",
+      "name": "Ascendant Lantern-frame commission",
+      "level": 99,
+      "xp": 68,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 5,
+        "ore": 5
+      },
+      "outcome": "Build and donate lantern frames; Crafting XP.",
+      "implemented": true
+    },
+    {
+      "id": "firemaking-1",
+      "skill": "firemaking",
+      "name": "Novice Beacon fuel preparation",
+      "level": 1,
+      "xp": 12,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 1
+      },
+      "outcome": "Burn supplied fuel safely at the yard; Firemaking XP.",
+      "implemented": true
+    },
+    {
+      "id": "firemaking-7",
+      "skill": "firemaking",
+      "name": "Apprentice Beacon fuel preparation",
+      "level": 7,
+      "xp": 16,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 1
+      },
+      "outcome": "Burn supplied fuel safely at the yard; Firemaking XP.",
+      "implemented": true
+    },
+    {
+      "id": "firemaking-14",
+      "skill": "firemaking",
+      "name": "Journeyman Beacon fuel preparation",
+      "level": 14,
+      "xp": 20,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 1
+      },
+      "outcome": "Burn supplied fuel safely at the yard; Firemaking XP.",
+      "implemented": true
+    },
+    {
+      "id": "firemaking-21",
+      "skill": "firemaking",
+      "name": "Adept Beacon fuel preparation",
+      "level": 21,
+      "xp": 24,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 2
+      },
+      "outcome": "Burn supplied fuel safely at the yard; Firemaking XP.",
+      "implemented": true
+    },
+    {
+      "id": "firemaking-28",
+      "skill": "firemaking",
+      "name": "Skilled Beacon fuel preparation",
+      "level": 28,
+      "xp": 28,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 2
+      },
+      "outcome": "Burn supplied fuel safely at the yard; Firemaking XP.",
+      "implemented": true
+    },
+    {
+      "id": "firemaking-35",
+      "skill": "firemaking",
+      "name": "Experienced Beacon fuel preparation",
+      "level": 35,
+      "xp": 32,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 2
+      },
+      "outcome": "Burn supplied fuel safely at the yard; Firemaking XP.",
+      "implemented": true
+    },
+    {
+      "id": "firemaking-42",
+      "skill": "firemaking",
+      "name": "Artisan Beacon fuel preparation",
+      "level": 42,
+      "xp": 36,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 3
+      },
+      "outcome": "Burn supplied fuel safely at the yard; Firemaking XP.",
+      "implemented": true
+    },
+    {
+      "id": "firemaking-49",
+      "skill": "firemaking",
+      "name": "Expert Beacon fuel preparation",
+      "level": 49,
+      "xp": 40,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 3
+      },
+      "outcome": "Burn supplied fuel safely at the yard; Firemaking XP.",
+      "implemented": true
+    },
+    {
+      "id": "firemaking-56",
+      "skill": "firemaking",
+      "name": "Veteran Beacon fuel preparation",
+      "level": 56,
+      "xp": 44,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 3
+      },
+      "outcome": "Burn supplied fuel safely at the yard; Firemaking XP.",
+      "implemented": true
+    },
+    {
+      "id": "firemaking-63",
+      "skill": "firemaking",
+      "name": "Elite Beacon fuel preparation",
+      "level": 63,
+      "xp": 48,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 4
+      },
+      "outcome": "Burn supplied fuel safely at the yard; Firemaking XP.",
+      "implemented": true
+    },
+    {
+      "id": "firemaking-70",
+      "skill": "firemaking",
+      "name": "Master Beacon fuel preparation",
+      "level": 70,
+      "xp": 52,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 4
+      },
+      "outcome": "Burn supplied fuel safely at the yard; Firemaking XP.",
+      "implemented": true
+    },
+    {
+      "id": "firemaking-77",
+      "skill": "firemaking",
+      "name": "Grandmaster Beacon fuel preparation",
+      "level": 77,
+      "xp": 56,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 4
+      },
+      "outcome": "Burn supplied fuel safely at the yard; Firemaking XP.",
+      "implemented": true
+    },
+    {
+      "id": "firemaking-84",
+      "skill": "firemaking",
+      "name": "Exalted Beacon fuel preparation",
+      "level": 84,
+      "xp": 60,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 5
+      },
+      "outcome": "Burn supplied fuel safely at the yard; Firemaking XP.",
+      "implemented": true
+    },
+    {
+      "id": "firemaking-91",
+      "skill": "firemaking",
+      "name": "Legendary Beacon fuel preparation",
+      "level": 91,
+      "xp": 64,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 5
+      },
+      "outcome": "Burn supplied fuel safely at the yard; Firemaking XP.",
+      "implemented": true
+    },
+    {
+      "id": "firemaking-99",
+      "skill": "firemaking",
+      "name": "Ascendant Beacon fuel preparation",
+      "level": 99,
+      "xp": 68,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 5
+      },
+      "outcome": "Burn supplied fuel safely at the yard; Firemaking XP.",
+      "implemented": true
+    },
+    {
+      "id": "fletching-1",
+      "skill": "fletching",
+      "name": "Novice Training-shaft commission",
+      "level": 1,
+      "xp": 12,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 1
+      },
+      "outcome": "Make and donate practice shafts; Fletching XP. No combat ammunition yet.",
+      "implemented": true
+    },
+    {
+      "id": "fletching-7",
+      "skill": "fletching",
+      "name": "Apprentice Training-shaft commission",
+      "level": 7,
+      "xp": 16,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 1
+      },
+      "outcome": "Make and donate practice shafts; Fletching XP. No combat ammunition yet.",
+      "implemented": true
+    },
+    {
+      "id": "fletching-14",
+      "skill": "fletching",
+      "name": "Journeyman Training-shaft commission",
+      "level": 14,
+      "xp": 20,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 1
+      },
+      "outcome": "Make and donate practice shafts; Fletching XP. No combat ammunition yet.",
+      "implemented": true
+    },
+    {
+      "id": "fletching-21",
+      "skill": "fletching",
+      "name": "Adept Training-shaft commission",
+      "level": 21,
+      "xp": 24,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 2
+      },
+      "outcome": "Make and donate practice shafts; Fletching XP. No combat ammunition yet.",
+      "implemented": true
+    },
+    {
+      "id": "fletching-28",
+      "skill": "fletching",
+      "name": "Skilled Training-shaft commission",
+      "level": 28,
+      "xp": 28,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 2
+      },
+      "outcome": "Make and donate practice shafts; Fletching XP. No combat ammunition yet.",
+      "implemented": true
+    },
+    {
+      "id": "fletching-35",
+      "skill": "fletching",
+      "name": "Experienced Training-shaft commission",
+      "level": 35,
+      "xp": 32,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 2
+      },
+      "outcome": "Make and donate practice shafts; Fletching XP. No combat ammunition yet.",
+      "implemented": true
+    },
+    {
+      "id": "fletching-42",
+      "skill": "fletching",
+      "name": "Artisan Training-shaft commission",
+      "level": 42,
+      "xp": 36,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 3
+      },
+      "outcome": "Make and donate practice shafts; Fletching XP. No combat ammunition yet.",
+      "implemented": true
+    },
+    {
+      "id": "fletching-49",
+      "skill": "fletching",
+      "name": "Expert Training-shaft commission",
+      "level": 49,
+      "xp": 40,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 3
+      },
+      "outcome": "Make and donate practice shafts; Fletching XP. No combat ammunition yet.",
+      "implemented": true
+    },
+    {
+      "id": "fletching-56",
+      "skill": "fletching",
+      "name": "Veteran Training-shaft commission",
+      "level": 56,
+      "xp": 44,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 3
+      },
+      "outcome": "Make and donate practice shafts; Fletching XP. No combat ammunition yet.",
+      "implemented": true
+    },
+    {
+      "id": "fletching-63",
+      "skill": "fletching",
+      "name": "Elite Training-shaft commission",
+      "level": 63,
+      "xp": 48,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 4
+      },
+      "outcome": "Make and donate practice shafts; Fletching XP. No combat ammunition yet.",
+      "implemented": true
+    },
+    {
+      "id": "fletching-70",
+      "skill": "fletching",
+      "name": "Master Training-shaft commission",
+      "level": 70,
+      "xp": 52,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 4
+      },
+      "outcome": "Make and donate practice shafts; Fletching XP. No combat ammunition yet.",
+      "implemented": true
+    },
+    {
+      "id": "fletching-77",
+      "skill": "fletching",
+      "name": "Grandmaster Training-shaft commission",
+      "level": 77,
+      "xp": 56,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 4
+      },
+      "outcome": "Make and donate practice shafts; Fletching XP. No combat ammunition yet.",
+      "implemented": true
+    },
+    {
+      "id": "fletching-84",
+      "skill": "fletching",
+      "name": "Exalted Training-shaft commission",
+      "level": 84,
+      "xp": 60,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 5
+      },
+      "outcome": "Make and donate practice shafts; Fletching XP. No combat ammunition yet.",
+      "implemented": true
+    },
+    {
+      "id": "fletching-91",
+      "skill": "fletching",
+      "name": "Legendary Training-shaft commission",
+      "level": 91,
+      "xp": 64,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 5
+      },
+      "outcome": "Make and donate practice shafts; Fletching XP. No combat ammunition yet.",
+      "implemented": true
+    },
+    {
+      "id": "fletching-99",
+      "skill": "fletching",
+      "name": "Ascendant Training-shaft commission",
+      "level": 99,
+      "xp": 68,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 5
+      },
+      "outcome": "Make and donate practice shafts; Fletching XP. No combat ammunition yet.",
+      "implemented": true
+    },
+    {
+      "id": "herblore-1",
+      "skill": "herblore",
+      "name": "Novice Essence-oil preparation",
+      "level": 1,
+      "xp": 12,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "fish": 1,
+        "warden_essence": 1
+      },
+      "outcome": "Refine fictional fish oil and Warden essence for the apothecary; Herblore XP. No usable potion yet.",
+      "implemented": true
+    },
+    {
+      "id": "herblore-7",
+      "skill": "herblore",
+      "name": "Apprentice Essence-oil preparation",
+      "level": 7,
+      "xp": 16,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "fish": 1,
+        "warden_essence": 1
+      },
+      "outcome": "Refine fictional fish oil and Warden essence for the apothecary; Herblore XP. No usable potion yet.",
+      "implemented": true
+    },
+    {
+      "id": "herblore-14",
+      "skill": "herblore",
+      "name": "Journeyman Essence-oil preparation",
+      "level": 14,
+      "xp": 20,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "fish": 1,
+        "warden_essence": 1
+      },
+      "outcome": "Refine fictional fish oil and Warden essence for the apothecary; Herblore XP. No usable potion yet.",
+      "implemented": true
+    },
+    {
+      "id": "herblore-21",
+      "skill": "herblore",
+      "name": "Adept Essence-oil preparation",
+      "level": 21,
+      "xp": 24,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "fish": 2,
+        "warden_essence": 2
+      },
+      "outcome": "Refine fictional fish oil and Warden essence for the apothecary; Herblore XP. No usable potion yet.",
+      "implemented": true
+    },
+    {
+      "id": "herblore-28",
+      "skill": "herblore",
+      "name": "Skilled Essence-oil preparation",
+      "level": 28,
+      "xp": 28,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "fish": 2,
+        "warden_essence": 2
+      },
+      "outcome": "Refine fictional fish oil and Warden essence for the apothecary; Herblore XP. No usable potion yet.",
+      "implemented": true
+    },
+    {
+      "id": "herblore-35",
+      "skill": "herblore",
+      "name": "Experienced Essence-oil preparation",
+      "level": 35,
+      "xp": 32,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "fish": 2,
+        "warden_essence": 2
+      },
+      "outcome": "Refine fictional fish oil and Warden essence for the apothecary; Herblore XP. No usable potion yet.",
+      "implemented": true
+    },
+    {
+      "id": "herblore-42",
+      "skill": "herblore",
+      "name": "Artisan Essence-oil preparation",
+      "level": 42,
+      "xp": 36,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "fish": 3,
+        "warden_essence": 3
+      },
+      "outcome": "Refine fictional fish oil and Warden essence for the apothecary; Herblore XP. No usable potion yet.",
+      "implemented": true
+    },
+    {
+      "id": "herblore-49",
+      "skill": "herblore",
+      "name": "Expert Essence-oil preparation",
+      "level": 49,
+      "xp": 40,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "fish": 3,
+        "warden_essence": 3
+      },
+      "outcome": "Refine fictional fish oil and Warden essence for the apothecary; Herblore XP. No usable potion yet.",
+      "implemented": true
+    },
+    {
+      "id": "herblore-56",
+      "skill": "herblore",
+      "name": "Veteran Essence-oil preparation",
+      "level": 56,
+      "xp": 44,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "fish": 3,
+        "warden_essence": 3
+      },
+      "outcome": "Refine fictional fish oil and Warden essence for the apothecary; Herblore XP. No usable potion yet.",
+      "implemented": true
+    },
+    {
+      "id": "herblore-63",
+      "skill": "herblore",
+      "name": "Elite Essence-oil preparation",
+      "level": 63,
+      "xp": 48,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "fish": 4,
+        "warden_essence": 4
+      },
+      "outcome": "Refine fictional fish oil and Warden essence for the apothecary; Herblore XP. No usable potion yet.",
+      "implemented": true
+    },
+    {
+      "id": "herblore-70",
+      "skill": "herblore",
+      "name": "Master Essence-oil preparation",
+      "level": 70,
+      "xp": 52,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "fish": 4,
+        "warden_essence": 4
+      },
+      "outcome": "Refine fictional fish oil and Warden essence for the apothecary; Herblore XP. No usable potion yet.",
+      "implemented": true
+    },
+    {
+      "id": "herblore-77",
+      "skill": "herblore",
+      "name": "Grandmaster Essence-oil preparation",
+      "level": 77,
+      "xp": 56,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "fish": 4,
+        "warden_essence": 4
+      },
+      "outcome": "Refine fictional fish oil and Warden essence for the apothecary; Herblore XP. No usable potion yet.",
+      "implemented": true
+    },
+    {
+      "id": "herblore-84",
+      "skill": "herblore",
+      "name": "Exalted Essence-oil preparation",
+      "level": 84,
+      "xp": 60,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "fish": 5,
+        "warden_essence": 5
+      },
+      "outcome": "Refine fictional fish oil and Warden essence for the apothecary; Herblore XP. No usable potion yet.",
+      "implemented": true
+    },
+    {
+      "id": "herblore-91",
+      "skill": "herblore",
+      "name": "Legendary Essence-oil preparation",
+      "level": 91,
+      "xp": 64,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "fish": 5,
+        "warden_essence": 5
+      },
+      "outcome": "Refine fictional fish oil and Warden essence for the apothecary; Herblore XP. No usable potion yet.",
+      "implemented": true
+    },
+    {
+      "id": "herblore-99",
+      "skill": "herblore",
+      "name": "Ascendant Essence-oil preparation",
+      "level": 99,
+      "xp": 68,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "fish": 5,
+        "warden_essence": 5
+      },
+      "outcome": "Refine fictional fish oil and Warden essence for the apothecary; Herblore XP. No usable potion yet.",
+      "implemented": true
+    },
+    {
+      "id": "runecrafting-1",
+      "skill": "runecrafting",
+      "name": "Novice Essence-seal commission",
+      "level": 1,
+      "xp": 12,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "warden_essence": 1
+      },
+      "outcome": "Inscribe and donate an essence seal; Runecrafting XP. No stored rune item yet.",
+      "implemented": true
+    },
+    {
+      "id": "runecrafting-7",
+      "skill": "runecrafting",
+      "name": "Apprentice Essence-seal commission",
+      "level": 7,
+      "xp": 16,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "warden_essence": 1
+      },
+      "outcome": "Inscribe and donate an essence seal; Runecrafting XP. No stored rune item yet.",
+      "implemented": true
+    },
+    {
+      "id": "runecrafting-14",
+      "skill": "runecrafting",
+      "name": "Journeyman Essence-seal commission",
+      "level": 14,
+      "xp": 20,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "warden_essence": 1
+      },
+      "outcome": "Inscribe and donate an essence seal; Runecrafting XP. No stored rune item yet.",
+      "implemented": true
+    },
+    {
+      "id": "runecrafting-21",
+      "skill": "runecrafting",
+      "name": "Adept Essence-seal commission",
+      "level": 21,
+      "xp": 24,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "warden_essence": 2
+      },
+      "outcome": "Inscribe and donate an essence seal; Runecrafting XP. No stored rune item yet.",
+      "implemented": true
+    },
+    {
+      "id": "runecrafting-28",
+      "skill": "runecrafting",
+      "name": "Skilled Essence-seal commission",
+      "level": 28,
+      "xp": 28,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "warden_essence": 2
+      },
+      "outcome": "Inscribe and donate an essence seal; Runecrafting XP. No stored rune item yet.",
+      "implemented": true
+    },
+    {
+      "id": "runecrafting-35",
+      "skill": "runecrafting",
+      "name": "Experienced Essence-seal commission",
+      "level": 35,
+      "xp": 32,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "warden_essence": 2
+      },
+      "outcome": "Inscribe and donate an essence seal; Runecrafting XP. No stored rune item yet.",
+      "implemented": true
+    },
+    {
+      "id": "runecrafting-42",
+      "skill": "runecrafting",
+      "name": "Artisan Essence-seal commission",
+      "level": 42,
+      "xp": 36,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "warden_essence": 3
+      },
+      "outcome": "Inscribe and donate an essence seal; Runecrafting XP. No stored rune item yet.",
+      "implemented": true
+    },
+    {
+      "id": "runecrafting-49",
+      "skill": "runecrafting",
+      "name": "Expert Essence-seal commission",
+      "level": 49,
+      "xp": 40,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "warden_essence": 3
+      },
+      "outcome": "Inscribe and donate an essence seal; Runecrafting XP. No stored rune item yet.",
+      "implemented": true
+    },
+    {
+      "id": "runecrafting-56",
+      "skill": "runecrafting",
+      "name": "Veteran Essence-seal commission",
+      "level": 56,
+      "xp": 44,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "warden_essence": 3
+      },
+      "outcome": "Inscribe and donate an essence seal; Runecrafting XP. No stored rune item yet.",
+      "implemented": true
+    },
+    {
+      "id": "runecrafting-63",
+      "skill": "runecrafting",
+      "name": "Elite Essence-seal commission",
+      "level": 63,
+      "xp": 48,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "warden_essence": 4
+      },
+      "outcome": "Inscribe and donate an essence seal; Runecrafting XP. No stored rune item yet.",
+      "implemented": true
+    },
+    {
+      "id": "runecrafting-70",
+      "skill": "runecrafting",
+      "name": "Master Essence-seal commission",
+      "level": 70,
+      "xp": 52,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "warden_essence": 4
+      },
+      "outcome": "Inscribe and donate an essence seal; Runecrafting XP. No stored rune item yet.",
+      "implemented": true
+    },
+    {
+      "id": "runecrafting-77",
+      "skill": "runecrafting",
+      "name": "Grandmaster Essence-seal commission",
+      "level": 77,
+      "xp": 56,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "warden_essence": 4
+      },
+      "outcome": "Inscribe and donate an essence seal; Runecrafting XP. No stored rune item yet.",
+      "implemented": true
+    },
+    {
+      "id": "runecrafting-84",
+      "skill": "runecrafting",
+      "name": "Exalted Essence-seal commission",
+      "level": 84,
+      "xp": 60,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "warden_essence": 5
+      },
+      "outcome": "Inscribe and donate an essence seal; Runecrafting XP. No stored rune item yet.",
+      "implemented": true
+    },
+    {
+      "id": "runecrafting-91",
+      "skill": "runecrafting",
+      "name": "Legendary Essence-seal commission",
+      "level": 91,
+      "xp": 64,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "warden_essence": 5
+      },
+      "outcome": "Inscribe and donate an essence seal; Runecrafting XP. No stored rune item yet.",
+      "implemented": true
+    },
+    {
+      "id": "runecrafting-99",
+      "skill": "runecrafting",
+      "name": "Ascendant Essence-seal commission",
+      "level": 99,
+      "xp": 68,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "warden_essence": 5
+      },
+      "outcome": "Inscribe and donate an essence seal; Runecrafting XP. No stored rune item yet.",
+      "implemented": true
+    },
+    {
+      "id": "slayer-1",
+      "skill": "slayer",
+      "name": "Novice Creature assignments",
+      "level": 1,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "slayer-7",
+      "skill": "slayer",
+      "name": "Apprentice Creature assignments",
+      "level": 7,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "slayer-14",
+      "skill": "slayer",
+      "name": "Journeyman Creature assignments",
+      "level": 14,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "slayer-21",
+      "skill": "slayer",
+      "name": "Adept Creature assignments",
+      "level": 21,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "slayer-28",
+      "skill": "slayer",
+      "name": "Skilled Creature assignments",
+      "level": 28,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "slayer-35",
+      "skill": "slayer",
+      "name": "Experienced Creature assignments",
+      "level": 35,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "slayer-42",
+      "skill": "slayer",
+      "name": "Artisan Creature assignments",
+      "level": 42,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "slayer-49",
+      "skill": "slayer",
+      "name": "Expert Creature assignments",
+      "level": 49,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "slayer-56",
+      "skill": "slayer",
+      "name": "Veteran Creature assignments",
+      "level": 56,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "slayer-63",
+      "skill": "slayer",
+      "name": "Elite Creature assignments",
+      "level": 63,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "slayer-70",
+      "skill": "slayer",
+      "name": "Master Creature assignments",
+      "level": 70,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "slayer-77",
+      "skill": "slayer",
+      "name": "Grandmaster Creature assignments",
+      "level": 77,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "slayer-84",
+      "skill": "slayer",
+      "name": "Exalted Creature assignments",
+      "level": 84,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "slayer-91",
+      "skill": "slayer",
+      "name": "Legendary Creature assignments",
+      "level": 91,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "slayer-99",
+      "skill": "slayer",
+      "name": "Ascendant Creature assignments",
+      "level": 99,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "smithing-1",
+      "skill": "smithing",
+      "name": "Novice Metal-fitting commission",
+      "level": 1,
+      "xp": 12,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "ore": 1,
+        "logs": 1
+      },
+      "outcome": "Heat and forge fittings for the settlement; Smithing XP.",
+      "implemented": true
+    },
+    {
+      "id": "smithing-7",
+      "skill": "smithing",
+      "name": "Apprentice Metal-fitting commission",
+      "level": 7,
+      "xp": 16,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "ore": 1,
+        "logs": 1
+      },
+      "outcome": "Heat and forge fittings for the settlement; Smithing XP.",
+      "implemented": true
+    },
+    {
+      "id": "smithing-14",
+      "skill": "smithing",
+      "name": "Journeyman Metal-fitting commission",
+      "level": 14,
+      "xp": 20,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "ore": 1,
+        "logs": 1
+      },
+      "outcome": "Heat and forge fittings for the settlement; Smithing XP.",
+      "implemented": true
+    },
+    {
+      "id": "smithing-21",
+      "skill": "smithing",
+      "name": "Adept Metal-fitting commission",
+      "level": 21,
+      "xp": 24,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "ore": 2,
+        "logs": 2
+      },
+      "outcome": "Heat and forge fittings for the settlement; Smithing XP.",
+      "implemented": true
+    },
+    {
+      "id": "smithing-28",
+      "skill": "smithing",
+      "name": "Skilled Metal-fitting commission",
+      "level": 28,
+      "xp": 28,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "ore": 2,
+        "logs": 2
+      },
+      "outcome": "Heat and forge fittings for the settlement; Smithing XP.",
+      "implemented": true
+    },
+    {
+      "id": "smithing-35",
+      "skill": "smithing",
+      "name": "Experienced Metal-fitting commission",
+      "level": 35,
+      "xp": 32,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "ore": 2,
+        "logs": 2
+      },
+      "outcome": "Heat and forge fittings for the settlement; Smithing XP.",
+      "implemented": true
+    },
+    {
+      "id": "smithing-42",
+      "skill": "smithing",
+      "name": "Artisan Metal-fitting commission",
+      "level": 42,
+      "xp": 36,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "ore": 3,
+        "logs": 3
+      },
+      "outcome": "Heat and forge fittings for the settlement; Smithing XP.",
+      "implemented": true
+    },
+    {
+      "id": "smithing-49",
+      "skill": "smithing",
+      "name": "Expert Metal-fitting commission",
+      "level": 49,
+      "xp": 40,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "ore": 3,
+        "logs": 3
+      },
+      "outcome": "Heat and forge fittings for the settlement; Smithing XP.",
+      "implemented": true
+    },
+    {
+      "id": "smithing-56",
+      "skill": "smithing",
+      "name": "Veteran Metal-fitting commission",
+      "level": 56,
+      "xp": 44,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "ore": 3,
+        "logs": 3
+      },
+      "outcome": "Heat and forge fittings for the settlement; Smithing XP.",
+      "implemented": true
+    },
+    {
+      "id": "smithing-63",
+      "skill": "smithing",
+      "name": "Elite Metal-fitting commission",
+      "level": 63,
+      "xp": 48,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "ore": 4,
+        "logs": 4
+      },
+      "outcome": "Heat and forge fittings for the settlement; Smithing XP.",
+      "implemented": true
+    },
+    {
+      "id": "smithing-70",
+      "skill": "smithing",
+      "name": "Master Metal-fitting commission",
+      "level": 70,
+      "xp": 52,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "ore": 4,
+        "logs": 4
+      },
+      "outcome": "Heat and forge fittings for the settlement; Smithing XP.",
+      "implemented": true
+    },
+    {
+      "id": "smithing-77",
+      "skill": "smithing",
+      "name": "Grandmaster Metal-fitting commission",
+      "level": 77,
+      "xp": 56,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "ore": 4,
+        "logs": 4
+      },
+      "outcome": "Heat and forge fittings for the settlement; Smithing XP.",
+      "implemented": true
+    },
+    {
+      "id": "smithing-84",
+      "skill": "smithing",
+      "name": "Exalted Metal-fitting commission",
+      "level": 84,
+      "xp": 60,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "ore": 5,
+        "logs": 5
+      },
+      "outcome": "Heat and forge fittings for the settlement; Smithing XP.",
+      "implemented": true
+    },
+    {
+      "id": "smithing-91",
+      "skill": "smithing",
+      "name": "Legendary Metal-fitting commission",
+      "level": 91,
+      "xp": 64,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "ore": 5,
+        "logs": 5
+      },
+      "outcome": "Heat and forge fittings for the settlement; Smithing XP.",
+      "implemented": true
+    },
+    {
+      "id": "smithing-99",
+      "skill": "smithing",
+      "name": "Ascendant Metal-fitting commission",
+      "level": 99,
+      "xp": 68,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "ore": 5,
+        "logs": 5
+      },
+      "outcome": "Heat and forge fittings for the settlement; Smithing XP.",
+      "implemented": true
+    },
+    {
+      "id": "thieving-1",
+      "skill": "thieving",
+      "name": "Novice Lockbox commissions",
+      "level": 1,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "thieving-7",
+      "skill": "thieving",
+      "name": "Apprentice Lockbox commissions",
+      "level": 7,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "thieving-14",
+      "skill": "thieving",
+      "name": "Journeyman Lockbox commissions",
+      "level": 14,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "thieving-21",
+      "skill": "thieving",
+      "name": "Adept Lockbox commissions",
+      "level": 21,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "thieving-28",
+      "skill": "thieving",
+      "name": "Skilled Lockbox commissions",
+      "level": 28,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "thieving-35",
+      "skill": "thieving",
+      "name": "Experienced Lockbox commissions",
+      "level": 35,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "thieving-42",
+      "skill": "thieving",
+      "name": "Artisan Lockbox commissions",
+      "level": 42,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "thieving-49",
+      "skill": "thieving",
+      "name": "Expert Lockbox commissions",
+      "level": 49,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "thieving-56",
+      "skill": "thieving",
+      "name": "Veteran Lockbox commissions",
+      "level": 56,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "thieving-63",
+      "skill": "thieving",
+      "name": "Elite Lockbox commissions",
+      "level": 63,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "thieving-70",
+      "skill": "thieving",
+      "name": "Master Lockbox commissions",
+      "level": 70,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "thieving-77",
+      "skill": "thieving",
+      "name": "Grandmaster Lockbox commissions",
+      "level": 77,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "thieving-84",
+      "skill": "thieving",
+      "name": "Exalted Lockbox commissions",
+      "level": 84,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "thieving-91",
+      "skill": "thieving",
+      "name": "Legendary Lockbox commissions",
+      "level": 91,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "thieving-99",
+      "skill": "thieving",
+      "name": "Ascendant Lockbox commissions",
+      "level": 99,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "farming-1",
+      "skill": "farming",
+      "name": "Novice Garden plots",
+      "level": 1,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "farming-7",
+      "skill": "farming",
+      "name": "Apprentice Garden plots",
+      "level": 7,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "farming-14",
+      "skill": "farming",
+      "name": "Journeyman Garden plots",
+      "level": 14,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "farming-21",
+      "skill": "farming",
+      "name": "Adept Garden plots",
+      "level": 21,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "farming-28",
+      "skill": "farming",
+      "name": "Skilled Garden plots",
+      "level": 28,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "farming-35",
+      "skill": "farming",
+      "name": "Experienced Garden plots",
+      "level": 35,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "farming-42",
+      "skill": "farming",
+      "name": "Artisan Garden plots",
+      "level": 42,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "farming-49",
+      "skill": "farming",
+      "name": "Expert Garden plots",
+      "level": 49,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "farming-56",
+      "skill": "farming",
+      "name": "Veteran Garden plots",
+      "level": 56,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "farming-63",
+      "skill": "farming",
+      "name": "Elite Garden plots",
+      "level": 63,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "farming-70",
+      "skill": "farming",
+      "name": "Master Garden plots",
+      "level": 70,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "farming-77",
+      "skill": "farming",
+      "name": "Grandmaster Garden plots",
+      "level": 77,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "farming-84",
+      "skill": "farming",
+      "name": "Exalted Garden plots",
+      "level": 84,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "farming-91",
+      "skill": "farming",
+      "name": "Legendary Garden plots",
+      "level": 91,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "farming-99",
+      "skill": "farming",
+      "name": "Ascendant Garden plots",
+      "level": 99,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "construction-1",
+      "skill": "construction",
+      "name": "Novice Joinery commission",
+      "level": 1,
+      "xp": 12,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 2,
+        "ore": 1
+      },
+      "outcome": "Build and donate settlement joints; Construction XP. No player housing yet.",
+      "implemented": true
+    },
+    {
+      "id": "construction-7",
+      "skill": "construction",
+      "name": "Apprentice Joinery commission",
+      "level": 7,
+      "xp": 16,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 2,
+        "ore": 1
+      },
+      "outcome": "Build and donate settlement joints; Construction XP. No player housing yet.",
+      "implemented": true
+    },
+    {
+      "id": "construction-14",
+      "skill": "construction",
+      "name": "Journeyman Joinery commission",
+      "level": 14,
+      "xp": 20,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 2,
+        "ore": 1
+      },
+      "outcome": "Build and donate settlement joints; Construction XP. No player housing yet.",
+      "implemented": true
+    },
+    {
+      "id": "construction-21",
+      "skill": "construction",
+      "name": "Adept Joinery commission",
+      "level": 21,
+      "xp": 24,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 4,
+        "ore": 2
+      },
+      "outcome": "Build and donate settlement joints; Construction XP. No player housing yet.",
+      "implemented": true
+    },
+    {
+      "id": "construction-28",
+      "skill": "construction",
+      "name": "Skilled Joinery commission",
+      "level": 28,
+      "xp": 28,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 4,
+        "ore": 2
+      },
+      "outcome": "Build and donate settlement joints; Construction XP. No player housing yet.",
+      "implemented": true
+    },
+    {
+      "id": "construction-35",
+      "skill": "construction",
+      "name": "Experienced Joinery commission",
+      "level": 35,
+      "xp": 32,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 4,
+        "ore": 2
+      },
+      "outcome": "Build and donate settlement joints; Construction XP. No player housing yet.",
+      "implemented": true
+    },
+    {
+      "id": "construction-42",
+      "skill": "construction",
+      "name": "Artisan Joinery commission",
+      "level": 42,
+      "xp": 36,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 6,
+        "ore": 3
+      },
+      "outcome": "Build and donate settlement joints; Construction XP. No player housing yet.",
+      "implemented": true
+    },
+    {
+      "id": "construction-49",
+      "skill": "construction",
+      "name": "Expert Joinery commission",
+      "level": 49,
+      "xp": 40,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 6,
+        "ore": 3
+      },
+      "outcome": "Build and donate settlement joints; Construction XP. No player housing yet.",
+      "implemented": true
+    },
+    {
+      "id": "construction-56",
+      "skill": "construction",
+      "name": "Veteran Joinery commission",
+      "level": 56,
+      "xp": 44,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 6,
+        "ore": 3
+      },
+      "outcome": "Build and donate settlement joints; Construction XP. No player housing yet.",
+      "implemented": true
+    },
+    {
+      "id": "construction-63",
+      "skill": "construction",
+      "name": "Elite Joinery commission",
+      "level": 63,
+      "xp": 48,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 8,
+        "ore": 4
+      },
+      "outcome": "Build and donate settlement joints; Construction XP. No player housing yet.",
+      "implemented": true
+    },
+    {
+      "id": "construction-70",
+      "skill": "construction",
+      "name": "Master Joinery commission",
+      "level": 70,
+      "xp": 52,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 8,
+        "ore": 4
+      },
+      "outcome": "Build and donate settlement joints; Construction XP. No player housing yet.",
+      "implemented": true
+    },
+    {
+      "id": "construction-77",
+      "skill": "construction",
+      "name": "Grandmaster Joinery commission",
+      "level": 77,
+      "xp": 56,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 8,
+        "ore": 4
+      },
+      "outcome": "Build and donate settlement joints; Construction XP. No player housing yet.",
+      "implemented": true
+    },
+    {
+      "id": "construction-84",
+      "skill": "construction",
+      "name": "Exalted Joinery commission",
+      "level": 84,
+      "xp": 60,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 10,
+        "ore": 5
+      },
+      "outcome": "Build and donate settlement joints; Construction XP. No player housing yet.",
+      "implemented": true
+    },
+    {
+      "id": "construction-91",
+      "skill": "construction",
+      "name": "Legendary Joinery commission",
+      "level": 91,
+      "xp": 64,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 10,
+        "ore": 5
+      },
+      "outcome": "Build and donate settlement joints; Construction XP. No player housing yet.",
+      "implemented": true
+    },
+    {
+      "id": "construction-99",
+      "skill": "construction",
+      "name": "Ascendant Joinery commission",
+      "level": 99,
+      "xp": 68,
+      "kind": "workshop",
+      "location": "Halden’s workshop / shrine",
+      "costs": {
+        "logs": 10,
+        "ore": 5
+      },
+      "outcome": "Build and donate settlement joints; Construction XP. No player housing yet.",
+      "implemented": true
+    },
+    {
+      "id": "hunter-1",
+      "skill": "hunter",
+      "name": "Novice Nonlethal tracking",
+      "level": 1,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "hunter-7",
+      "skill": "hunter",
+      "name": "Apprentice Nonlethal tracking",
+      "level": 7,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "hunter-14",
+      "skill": "hunter",
+      "name": "Journeyman Nonlethal tracking",
+      "level": 14,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "hunter-21",
+      "skill": "hunter",
+      "name": "Adept Nonlethal tracking",
+      "level": 21,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "hunter-28",
+      "skill": "hunter",
+      "name": "Skilled Nonlethal tracking",
+      "level": 28,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "hunter-35",
+      "skill": "hunter",
+      "name": "Experienced Nonlethal tracking",
+      "level": 35,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "hunter-42",
+      "skill": "hunter",
+      "name": "Artisan Nonlethal tracking",
+      "level": 42,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "hunter-49",
+      "skill": "hunter",
+      "name": "Expert Nonlethal tracking",
+      "level": 49,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "hunter-56",
+      "skill": "hunter",
+      "name": "Veteran Nonlethal tracking",
+      "level": 56,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "hunter-63",
+      "skill": "hunter",
+      "name": "Elite Nonlethal tracking",
+      "level": 63,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "hunter-70",
+      "skill": "hunter",
+      "name": "Master Nonlethal tracking",
+      "level": 70,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "hunter-77",
+      "skill": "hunter",
+      "name": "Grandmaster Nonlethal tracking",
+      "level": 77,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "hunter-84",
+      "skill": "hunter",
+      "name": "Exalted Nonlethal tracking",
+      "level": 84,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "hunter-91",
+      "skill": "hunter",
+      "name": "Legendary Nonlethal tracking",
+      "level": 91,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    },
+    {
+      "id": "hunter-99",
+      "skill": "hunter",
+      "name": "Ascendant Nonlethal tracking",
+      "level": 99,
+      "xp": 0,
+      "kind": "guide",
+      "location": "Future world content",
+      "costs": {},
+      "outcome": "Planned method: use the existing drill or combat system today.",
+      "implemented": false
+    }
+  ],
+  "limitations": [
+    "Gathering methods share existing pooled materials and nodes",
+    "Curriculum commissions donate output; connected starter activities produce usable skill supplies",
+    "Advanced guide bands are planned; connected starter methods are executable",
+    "Every skill also retains a 1-XP practice drill"
+  ]
+}

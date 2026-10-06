@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Wayfarer",
+      "hasCanvas": false,
+      "bodyTextLen": 146,
+      "bodyTextHash": "c26c837560a614e62a5cb0c7edc1bd53e96d08572cd74d3a9294c2746538e9f4",
+      "bodyTextPrefix": "Wayfarer / v2.2 Reedhaven Starlit Highlands · Celestial Observat",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Wayfarer",
+      "hasCanvas": false,
+      "bodyTextLen": 146,
+      "bodyTextHash": "c26c837560a614e62a5cb0c7edc1bd53e96d08572cd74d3a9294c2746538e9f4",
+      "bodyTextPrefix": "Wayfarer / v2.2 Reedhaven Starlit Highlands · Celestial Observat",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-preview.json"
+}
